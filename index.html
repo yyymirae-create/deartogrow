@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="같이크는마음 — 아동·청소년 놀이치료, 양육상담, 심리검사. 아이와 양육자가 함께 자라는 심리상담 공간입니다." />
+  <title>같이크는마음 | 아동·청소년 심리상담</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'Dunggeunmiso';
+      src: url('Hakgyoansim Dunggeunmiso TTF B.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --cream-bg: #F7F0E4;
+      --cream-light: #FEFEFD;
+      --cream-card: #FFF8EC;
+      --warm-ivory: #F9E9AA;
+
+      --primary-green: #16A34A;
+      --primary-green-dark: #0F8A3A;
+      --primary-green-soft: #E6F4EA;
+
+      --navy-text: #3F5346;
+      --sage-dark: #3F5346;
+      --gray-text: #5F666F;
+      --muted-gray: #CCCFC5;
+
+      --warm-yellow: #F8DC79;
+      --warm-brown: #C89D64;
+
+      --white: #FFFFFF;
+
+      --border-soft: rgba(204, 207, 197, 0.55);
+      --shadow-sm: 0 2px 14px rgba(63, 83, 70, 0.08);
+      --shadow-md: 0 8px 28px rgba(63, 83, 70, 0.1);
+      --shadow-green: 0 6px 20px rgba(22, 163, 74, 0.28);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --transition: 0.3s ease;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 400;
+      color: var(--gray-text);
+      background: var(--cream-bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--navy-text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(247, 240, 228, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .header.scrolled {
+      border-color: var(--border-soft);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-family: 'Dunggeunmiso', 'Noto Sans KR', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy-text);
+      letter-spacing: -0.02em;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--navy-text);
+      transition: color var(--transition);
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-green);
+      transition: width var(--transition);
+    }
+
+    .nav a:hover { color: var(--primary-green-dark); }
+    .nav a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--primary-green);
+      color: var(--white) !important;
+      padding: 9px 18px;
+      border-radius: 999px;
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--primary-green-dark); color: var(--white) !important; }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--primary-green-dark);
+      transition: var(--transition);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      background: linear-gradient(165deg, var(--cream-light) 0%, var(--cream-bg) 50%, var(--primary-green-soft) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -15%; right: -8%;
+      width: 50%; height: 75%;
+      background: radial-gradient(ellipse, rgba(248, 220, 121, 0.35) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -10%; left: -5%;
+      width: 40%; height: 50%;
+      background: radial-gradient(ellipse, rgba(22, 163, 74, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--cream-card);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      color: var(--primary-green-dark);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-soft);
+      line-height: 1.5;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.85rem, 4.5vw, 2.65rem);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-desc {
+      font-size: 1.02rem;
+      color: var(--gray-text);
+      margin-bottom: 36px;
+      max-width: 460px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--primary-green);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-green-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-green);
+    }
+
+    .btn-outline {
+      background: var(--cream-light);
+      color: var(--primary-green-dark);
+      border: 1.5px solid var(--primary-green);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-green-soft);
+      border-color: var(--primary-green-dark);
+    }
+
+    .btn-sm {
+      padding: 10px 18px;
+      font-size: 0.85rem;
+    }
+
+    .hero-showcase {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-soft);
+      aspect-ratio: 4 / 5;
+      max-width: 420px;
+      margin-left: auto;
+      background: var(--cream-card);
+    }
+
+    .hero-showcase::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: calc(var(--radius-lg) + 3px);
+      background: linear-gradient(135deg, var(--warm-yellow), var(--warm-ivory));
+      z-index: -1;
+    }
+
+    .hero-showcase-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-showcase-logo {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 96px;
+      height: auto;
+      padding: 12px;
+      background: rgba(254, 254, 253, 0.94);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-soft);
+    }
+
+    /* Sections */
+    section { padding: 100px 0; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--primary-green-dark);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--gray-text);
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-header-center .section-desc {
+      margin: 0 auto;
+    }
+
+    /* About */
+    .about { background: var(--cream-light); }
+
+    .about-intro {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .about-intro .section-desc {
+      margin: 0 auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-feature {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-soft);
+    }
+
+    .about-feature img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-image-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(254, 254, 253, 0.95);
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-soft);
+    }
+
+    .about-image-badge strong {
+      display: block;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .about-image-badge span {
+      font-size: 0.78rem;
+      color: var(--gray-text);
+      line-height: 1.5;
+    }
+
+    .about-content p {
+      margin-bottom: 16px;
+      color: var(--gray-text);
+    }
+
+    .about-gallery {
+      margin-top: 56px;
+    }
+
+    .about-gallery-title {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--sage-dark);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .about-gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 1;
+      border: 1px solid var(--border-soft);
+      background: var(--cream-card);
+    }
+
+    .about-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .about-gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .about-gallery-item--wide {
+      grid-column: span 2;
+      aspect-ratio: 2 / 1;
+    }
+
+    .about-gallery-item--tall {
+      grid-row: span 2;
+      aspect-ratio: auto;
+    }
+
+    .about-values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .value-card {
+      background: var(--cream-card);
+      padding: 20px;
+      border-radius: var(--radius);
+      text-align: center;
+      border: 1px solid var(--border-soft);
+    }
+
+    .value-card .icon {
+      width: 44px;
+      height: 44px;
+      background: var(--warm-yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-size: 1.25rem;
+      box-shadow: 0 2px 8px rgba(248, 220, 121, 0.4);
+    }
+
+    .value-card h4 {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+
+    .value-card p {
+      font-size: 0.75rem;
+      color: var(--gray-text);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Counselor */
+    .counselor-section { background: var(--primary-green-soft); }
+
+    .counselor-single {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--cream-light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-soft);
+      overflow: hidden;
+    }
+
+    .counselor-top {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+    }
+
+    .counselor-photo {
+      background: linear-gradient(180deg, var(--primary-green-soft) 0%, var(--cream-card) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+      padding: 24px;
+    }
+
+    .counselor-logo {
+      width: min(160px, 80%);
+      height: auto;
+      object-fit: contain;
+    }
+
+    .counselor-section .section-header-center .section-desc {
+      max-width: 680px;
+    }
+
+    .text-keep-line {
+      display: inline;
+    }
+
+    @media (min-width: 900px) {
+      .text-keep-line {
+        white-space: nowrap;
+      }
+    }
+
+    .counselor-intro-text {
+      text-wrap: pretty;
+    }
+
+    .counselor-head {
+      padding: 32px 32px 24px;
+    }
+
+    .counselor-head h3 {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .counselor-role {
+      font-size: 0.9rem;
+      color: var(--primary-green-dark);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .counselor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .counselor-tags span {
+      font-size: 0.72rem;
+      background: var(--primary-green-soft);
+      color: var(--primary-green-dark);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .counselor-body {
+      padding: 0 32px 32px;
+    }
+
+    .counselor-body > p {
+      font-size: 0.92rem;
+      color: var(--gray-text);
+      margin-bottom: 24px;
+      line-height: 1.75;
+    }
+
+    .counselor-details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .detail-block h4 {
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 600;
+    }
+
+    .detail-block ul {
+      list-style: none;
+    }
+
+    .detail-block li {
+      font-size: 0.8rem;
+      color: var(--gray-text);
+      padding: 4px 0;
+      padding-left: 12px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .detail-block li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--warm-brown);
+    }
+
+    /* Programs */
+    .programs { background: var(--cream-bg); }
+
+    .program-group {
+      margin-bottom: 56px;
+    }
+
+    .program-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .program-group-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      padding-left: 14px;
+      border-left: 4px solid var(--primary-green);
+    }
+
+    .program-group--assessment .program-group-title {
+      border-left-color: var(--warm-brown);
+    }
+
+    .program-group-desc {
+      font-size: 0.92rem;
+      color: var(--gray-text);
+      margin-bottom: 28px;
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .program-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 28px;
+      background: var(--cream-light);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+
+    .program-card:hover {
+      border-color: var(--primary-green);
+      background: var(--cream-card);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .program-card-head {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .program-icon {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      background: var(--warm-yellow);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      box-shadow: 0 2px 8px rgba(248, 220, 121, 0.45);
+    }
+
+    .program-group--assessment .program-icon {
+      background: var(--warm-ivory);
+    }
+
+    .program-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 0;
+    }
+
+    .program-desc {
+      font-size: 0.88rem;
+      color: var(--gray-text);
+      line-height: 1.7;
+    }
+
+    .program-field {
+      margin-top: 14px;
+    }
+
+    .program-field-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--navy-text);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .program-target-text {
+      font-size: 0.84rem;
+      color: var(--gray-text);
+    }
+
+    .program-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .program-pill {
+      font-size: 0.74rem;
+      background: var(--primary-green-soft);
+      color: var(--primary-green-dark);
+      padding: 5px 11px;
+      border-radius: 999px;
+      line-height: 1.4;
+    }
+
+    .program-compose {
+      font-size: 0.8rem;
+      color: var(--gray-text);
+      background: var(--cream-bg);
+      padding: 10px 12px;
+      border-radius: 8px;
+      line-height: 1.55;
+      border: 1px solid var(--border-soft);
+    }
+
+    .program-card-footer {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .program-meta {
+      font-size: 0.78rem;
+      color: var(--primary-green-dark);
+      font-weight: 600;
+    }
+
+    .btn-book {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: var(--primary-green);
+      color: var(--white);
+      white-space: nowrap;
+      transition: all var(--transition);
+    }
+
+    .btn-book:hover {
+      background: var(--primary-green-dark);
+      box-shadow: var(--shadow-green);
+    }
+
+    /* Pricing */
+    .pricing {
+      background: var(--cream-card);
+      padding: 80px 0;
+    }
+
+    .pricing-box {
+      background: var(--cream-light);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-soft);
+    }
+
+    .pricing-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 32px;
+      margin-bottom: 28px;
+    }
+
+    .pricing-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 0.9rem;
+    }
+
+    .pricing-item span:first-child { color: var(--navy-text); }
+    .pricing-item span:last-child {
+      color: var(--primary-green-dark);
+      font-weight: 500;
+      white-space: nowrap;
+      font-size: 0.85rem;
+    }
+
+    .pricing-policy {
+      font-size: 0.82rem;
+      color: var(--gray-text);
+      line-height: 1.75;
+      padding: 20px;
+      background: var(--cream-bg);
+      border-radius: var(--radius);
+    }
+
+    .pricing-policy strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+
+    /* Signs */
+    .signs { background: var(--cream-light); }
+
+    .signs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .signs-card {
+      background: var(--cream-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+
+    .signs-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .signs-card ul {
+      list-style: none;
+    }
+
+    .signs-card li {
+      font-size: 0.88rem;
+      color: var(--gray-text);
+      padding: 6px 0 6px 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .signs-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 5px;
+      height: 5px;
+      background: var(--warm-yellow);
+      border: 1px solid var(--warm-brown);
+      border-radius: 50%;
+    }
+
+    /* Process */
+    .process { background: var(--primary-green-soft); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .process-step {
+      background: var(--cream-light);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-soft);
+      position: relative;
+    }
+
+    .process-num {
+      width: 32px;
+      height: 32px;
+      background: var(--primary-green);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .process-step h3 {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .process-step p {
+      font-size: 0.8rem;
+      color: var(--gray-text);
+      line-height: 1.6;
+    }
+
+    /* Contact */
+    .contact {
+      background: linear-gradient(180deg, var(--cream-bg) 0%, var(--warm-ivory) 50%, var(--primary-green-soft) 100%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-info > p {
+      color: var(--gray-text);
+      margin-bottom: 28px;
+    }
+
+    .contact-notice {
+      font-size: 0.85rem;
+      color: var(--gray-text);
+      background: var(--cream-light);
+      padding: 16px 18px;
+      border-radius: var(--radius);
+      margin-bottom: 28px;
+      line-height: 1.65;
+      border: 1px solid var(--border-soft);
+      border-left: 3px solid var(--primary-green);
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .contact-item-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--warm-yellow);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 0.82rem;
+      margin-bottom: 2px;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      font-size: 0.88rem;
+      color: var(--gray-text);
+    }
+
+    .contact-item a:hover { color: var(--primary-green); }
+
+    .apply-links h4 {
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 600;
+    }
+
+    .apply-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .apply-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--cream-light);
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      color: var(--navy-text);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .apply-link:hover {
+      background: var(--primary-green-soft);
+      border-color: var(--primary-green);
+      color: var(--primary-green-dark);
+    }
+
+    .apply-link::after {
+      content: '→';
+      color: var(--primary-green);
+    }
+
+    .contact-booking-card {
+      background: var(--cream-light);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-soft);
+    }
+
+    .contact-booking-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
+    .contact-booking-card > p {
+      font-size: 0.9rem;
+      color: var(--gray-text);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .contact-booking-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-booking-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-secondary {
+      background: var(--cream-card);
+      color: var(--navy-text);
+      border: 1px solid var(--border-soft);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-green-soft);
+      border-color: var(--primary-green);
+      color: var(--primary-green-dark);
+    }
+
+    .contact-kakao-note {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.85rem;
+      color: var(--gray-text);
+    }
+
+    .contact-kakao-note strong {
+      color: var(--navy-text);
+    }
+
+    /* Footer */
+    .footer {
+      background: linear-gradient(180deg, var(--sage-dark) 0%, #2d3d32 100%);
+      color: rgba(255, 255, 255, 0.88);
+      padding: 48px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+
+    .footer .logo-text { color: var(--white); }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      margin-top: 16px;
+      opacity: 0.8;
+      line-height: 1.7;
+    }
+
+    .footer h4 {
+      font-size: 0.9rem;
+      color: var(--white);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .footer ul { list-style: none; }
+
+    .footer ul li { margin-bottom: 10px; }
+
+    .footer ul a {
+      font-size: 0.875rem;
+      opacity: 0.75;
+      transition: opacity var(--transition);
+    }
+
+    .footer ul a:hover { opacity: 1; }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .nav a:not(.nav-cta) { font-size: 0.78rem; }
+      .nav { gap: 14px; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-gallery-item--wide {
+        grid-column: span 2;
+      }
+
+      .about-gallery-item--tall {
+        grid-row: span 1;
+        aspect-ratio: 1;
+      }
+
+      .program-grid,
+      .signs-grid,
+      .pricing-list {
+        grid-template-columns: 1fr;
+      }
+
+      .about-values,
+      .counselor-details {
+        grid-template-columns: 1fr;
+      }
+
+      .counselor-top {
+        grid-template-columns: 1fr;
+      }
+
+      .counselor-photo { min-height: 160px; }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .hero-visual { order: -1; }
+
+      .hero-showcase {
+        max-width: 100%;
+        margin: 0 auto;
+        aspect-ratio: 16 / 11;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        position: fixed;
+        top: 72px;
+        left: 0; right: 0;
+        background: var(--cream-light);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border-soft);
+        transform: translateY(-120%);
+        opacity: 0;
+        transition: transform var(--transition), opacity var(--transition);
+        pointer-events: none;
+        max-height: calc(100vh - 72px);
+        overflow-y: auto;
+      }
+
+      .nav.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav a { white-space: normal; }
+
+      .menu-toggle { display: flex; }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .menu-toggle.active span:nth-child(2) { opacity: 0; }
+
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      section { padding: 72px 0; }
+
+      .contact-booking-card { padding: 28px 24px; }
+
+      .process-steps { grid-template-columns: 1fr; }
+
+      .pricing-box { padding: 28px 24px; }
+
+      .about-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-gallery-item--wide {
+        grid-column: span 1;
+        aspect-ratio: 4/3;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <img src="images/logo_color.png" alt="" class="logo-mark" width="42" height="42" />
+        <span class="logo-text">같이크는마음</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#about">소개</a>
+        <a href="#counselor">상담자</a>
+        <a href="#programs">프로그램</a>
+        <a href="#process">절차</a>
+        <a href="#pricing">비용</a>
+        <a href="#contact" class="nav-cta">문의</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content fade-in">
+        <div class="hero-badge">아동·청소년 상담 · 놀이치료 · 양육상담 · 심리검사</div>
+        <h1>아이와 양육자의 마음이<br />함께 자라는 곳</h1>
+        <p class="hero-desc">
+          같이크는마음은 아동·청소년의 놀이치료와 심리상담, 양육상담, 심리검사를 통해
+          아이와 양육자가 서로를 이해하고 함께 성장하도록 돕는 상담 공간입니다.
+        </p>
+        <div class="hero-actions">
+          <a href="https://naver.me/GWi0F7q2" class="btn btn-primary" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
+          <a href="#programs" class="btn btn-outline">프로그램 살펴보기</a>
+        </div>
+      </div>
+      <div class="hero-visual fade-in">
+        <div class="hero-showcase">
+          <img
+            src="images/about-02-consult.jpg"
+            alt="같이크는마음 상담실"
+            class="hero-showcase-photo"
+            width="420"
+            height="525"
+          />
+          <img src="images/logo_color.png" alt="" class="hero-showcase-logo" width="96" height="96" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-intro fade-in">
+        <span class="section-label">About</span>
+        <h2 class="section-title">함께 이해하고,<br />함께 자라는 마음의 공간</h2>
+        <p class="section-desc">아이와 양육자가 편안하게 들어올 수 있는 따뜻한 상담 공간입니다.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-feature fade-in">
+          <img src="images/about-01-sign.jpg" alt="같이크는마음 아동청소년상담소 안내" loading="lazy" />
+          <div class="about-image-badge">
+            <strong>이해하고, 함께 자라는 곳</strong>
+            <span>아이와 양육자가 서로를 이해하며 함께 자라가는 공간입니다.</span>
+          </div>
+        </div>
+        <div class="about-content fade-in">
+          <p>
+            같이크는마음은 아동·청소년의 정서와 행동을 단순히 문제로 보지 않고,
+            아이가 가진 기질, 발달 특성, 감각 민감성, 관계 경험, 양육환경을 함께 살피는 상담 공간입니다.
+          </p>
+          <p>
+            아이들은 때로 말보다 놀이와 행동으로 자신의 마음을 표현합니다.
+            상담자는 아이의 속도에 맞춰 기다리며, 놀이 속에 담긴 감정과 욕구를 이해하고 공감합니다.
+          </p>
+          <p>
+            아이 한 명을 깊이 이해하기 위해서는 아이의 기질, 애착, 양육자의 양육태도,
+            가정과 기관에서의 모습 등을 여러 각도에서 면밀히 살펴보아야 합니다.
+            같이크는마음은 아이가 현재 살아가는 삶을 종합적으로 이해하고,
+            아이가 본래 가진 자라는 힘이 잘 발휘되도록 돕습니다.
+          </p>
+          <div class="about-values">
+            <div class="value-card">
+              <div class="icon">🧸</div>
+              <h4>놀이로 이해하기</h4>
+              <p>아이가 놀이로 표현하는 마음을 세심하게 살핍니다</p>
+            </div>
+            <div class="value-card">
+              <div class="icon">🤝</div>
+              <h4>부모와 함께하기</h4>
+              <p>매 회기 부모상담을 통해 가정에서의 지원을 함께 고민합니다</p>
+            </div>
+            <div class="value-card">
+              <div class="icon">🌱</div>
+              <h4>건강하게 자라기</h4>
+              <p>아이와 양육자가 서로를 이해하며 함께 성장하도록 돕습니다</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-gallery fade-in">
+        <p class="about-gallery-title">상담소 공간을 둘러보세요</p>
+        <div class="about-gallery-grid">
+          <figure class="about-gallery-item about-gallery-item--wide">
+            <img src="images/about-02-consult.jpg" alt="1:1 상담실" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item">
+            <img src="images/about-03-family-room.jpg" alt="가족 상담 공간" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item">
+            <img src="images/about-04-playroom.jpg" alt="놀이치료실 전경" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item about-gallery-item--tall">
+            <img src="images/about-05-play-area.jpg" alt="놀이 공간" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item">
+            <img src="images/about-06-toys.jpg" alt="놀이치료 도구" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item">
+            <img src="images/about-07-books.jpg" alt="심리·놀이치료 도서" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item">
+            <img src="images/about-08-decor.jpg" alt="따뜻한 상담실 분위기" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item">
+            <img src="images/about-09-child-play.jpg" alt="놀이를 통한 마음 표현" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item">
+            <img src="images/about-10-child-shelf.jpg" alt="아이 눈높이의 놀이 공간" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item about-gallery-item--wide">
+            <img src="images/about-11-bookshelf.jpg" alt="책과 자료가 있는 공간" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item">
+            <img src="images/about-12-child-play.jpg" alt="놀이치료 장면" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item">
+            <img src="images/about-13-child-activity.jpg" alt="아이의 집중된 놀이" loading="lazy" />
+          </figure>
+          <figure class="about-gallery-item">
+            <img src="images/about-14-message.jpg" alt="상담 철학 메시지" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="counselor-section" id="counselor">
+    <div class="container">
+      <div class="section-header-center fade-in">
+        <span class="section-label">Counselor</span>
+        <h2 class="section-title">상담자를 소개합니다</h2>
+        <p class="section-desc"><span class="text-keep-line">직장어린이집 보육교사 경력을 바탕으로 아이의 발달과 양육환경을 함께 이해하며 상담합니다.</span></p>
+      </div>
+      <article class="counselor-single fade-in">
+        <div class="counselor-top">
+          <div class="counselor-photo">
+            <img src="images/logo_color.png" alt="같이크는마음" class="counselor-logo" width="160" height="160" />
+          </div>
+          <div class="counselor-head">
+            <h3>유미래</h3>
+            <p class="counselor-role">같이크는마음 소장 · 놀이심리상담사</p>
+            <div class="counselor-tags">
+              <span>놀이치료</span>
+              <span>아동·청소년 상담</span>
+              <span>부모상담</span>
+              <span>양육코칭</span>
+              <span>심리검사</span>
+            </div>
+          </div>
+        </div>
+        <div class="counselor-body">
+          <p class="counselor-intro-text">
+            직장어린이집 보육교사, 육아정책연구소 연구원, 아동심리치료 전공 석사 과정을 거치며 아이의 발달과 양육환경을 통합적으로 이해해왔습니다.
+            <span class="text-keep-line">현재는 상담현장에서 아동과 청소년, 양육자가 서로를 이해하고 건강하게 성장할 수 있도록 돕고 있습니다.</span>
+          </p>
+          <div class="counselor-details">
+            <div class="detail-block">
+              <h4>자격</h4>
+              <ul>
+                <li>놀이심리상담사</li>
+                <li>임상심리사</li>
+                <li>청소년상담사</li>
+                <li>발달재활서비스 제공인력</li>
+                <li>보육교사</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>학력</h4>
+              <ul>
+                <li>경희대학교 아동가족학과</li>
+                <li>숙명여자대학교 일반대학원 아동복지학과 아동심리치료전공 석사 졸업</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>주요 경력</h4>
+              <ul>
+                <li>같이크는마음 소장</li>
+                <li>서울가정법원 광역면접교섭센터 면접교섭상담위원</li>
+                <li>상계종합사회복지관 전문상담센터 놀이심리상담사</li>
+                <li>육아정책연구소 연구원</li>
+                <li>강북구육아종합지원센터 보육전문요원</li>
+                <li>삼성GEC 직장어린이집 보육교직원</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="programs" id="programs">
+    <div class="container">
+      <div class="section-header-center fade-in">
+        <span class="section-label">Programs</span>
+        <h2 class="section-title">프로그램 안내</h2>
+        <p class="section-desc">
+          아이의 나이와 상황에 맞는 상담과 검사를 제공합니다.
+          상담과 검사는 각각의 목적이 다르므로, 필요한 경우 접수상담을 통해 현재 상황에 맞는 방향을 함께 정합니다.
+        </p>
+      </div>
+
+      <div class="program-group fade-in">
+        <h3 class="program-group-title">상담 프로그램</h3>
+        <p class="program-group-desc">
+          놀이와 대화, 부모상담을 통해 아이와 양육자의 마음을 함께 이해하고 일상에서의 변화를 돕습니다.
+        </p>
+        <div class="program-grid">
+          <article class="program-card fade-in">
+            <div class="program-card-head">
+              <div class="program-icon">🧸</div>
+              <h3>아동 놀이치료</h3>
+            </div>
+            <p class="program-desc">미취학 아동과 초등 저학년 아동을 대상으로 진행합니다. 아이들은 말로 표현하기 어려운 마음을 놀이 속에 담아 보여줍니다. 상담자는 아이의 놀이 흐름을 따라가며 감정, 관계, 불안, 자기조절의 어려움을 이해하고 아이가 자신의 마음을 안전하게 표현할 수 있도록 돕습니다.</p>
+            <div class="program-field">
+              <span class="program-field-label">대상</span>
+              <p class="program-target-text">미취학 아동, 초등학교 1~3학년</p>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">구성</span>
+              <p class="program-compose">아동 40분 + 부모상담 15분</p>
+            </div>
+            <div class="program-card-footer">
+              <span class="program-meta">총 55분 · 주 1회 권장</span>
+              <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
+            </div>
+          </article>
+          <article class="program-card fade-in">
+            <div class="program-card-head">
+              <div class="program-icon">🌿</div>
+              <h3>청소년 심리상담</h3>
+            </div>
+            <p class="program-desc">초등학교 고학년 이상 청소년을 대상으로 진행합니다. 학교생활, 또래관계, 정서조절, 자존감, 가족관계의 어려움을 함께 다룹니다. 청소년의 발달 수준과 성향에 따라 보드게임, 대화, 심리검사 등을 활용하여 안전하게 마음을 표현할 수 있도록 돕습니다.</p>
+            <div class="program-field">
+              <span class="program-field-label">대상</span>
+              <p class="program-target-text">초등학교 4학년 이상, 중·고등학생</p>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">구성</span>
+              <p class="program-compose">청소년 상담 40분 + 부모상담 15분</p>
+            </div>
+            <div class="program-card-footer">
+              <span class="program-meta">총 55분 · 주 1회 권장</span>
+              <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
+            </div>
+          </article>
+          <article class="program-card fade-in">
+            <div class="program-card-head">
+              <div class="program-icon">🏠</div>
+              <h3>양육상담</h3>
+            </div>
+            <p class="program-desc">아이의 행동을 단순한 문제로만 보지 않고, 기질, 발달, 감각, 관계 맥락 안에서 함께 이해합니다. 양육자가 아이의 마음을 더 구체적으로 이해하고, 가정에서 실천 가능한 양육 방향을 찾을 수 있도록 돕습니다.</p>
+            <div class="program-field">
+              <span class="program-field-label">대상</span>
+              <p class="program-target-text">자녀 양육에 대한 고민이 있는 보호자</p>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">구성</span>
+              <p class="program-compose">보호자 상담</p>
+            </div>
+            <div class="program-card-footer">
+              <span class="program-meta">50분</span>
+              <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="program-group program-group--assessment fade-in">
+        <h3 class="program-group-title">심리검사 프로그램</h3>
+        <p class="program-group-desc">
+          기질, 정서, 양육태도, 학습 및 진로 특성을 객관적으로 살펴보고 아이와 양육자를 더 깊이 이해하기 위한 검사입니다.
+        </p>
+        <div class="program-grid">
+          <article class="program-card fade-in">
+            <div class="program-card-head">
+              <div class="program-icon">🌈</div>
+              <h3>아이와 나, 기질검사</h3>
+            </div>
+            <p class="program-desc">아이와 양육자의 타고난 기질과 현재 형성된 성격 특성을 함께 살펴보는 검사입니다. 아이가 예민한 편인지, 낯선 상황에 조심스러운지, 자극을 많이 추구하는지, 끈기가 어느 정도인지 등을 이해하고, 양육자와 아이의 기질 차이가 관계 안에서 어떻게 부딪히거나 조화를 이루는지 살펴봅니다.</p>
+            <div class="program-field">
+              <span class="program-field-label">추천 대상</span>
+              <div class="program-pills">
+                <span class="program-pill">나와 다른 아이의 기질을 이해하고 싶은 경우</span>
+                <span class="program-pill">아이에게 맞는 양육 방식을 찾고 싶은 경우</span>
+                <span class="program-pill">아이와 자주 부딪히는 이유를 알고 싶은 경우</span>
+              </div>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">검사 구성</span>
+              <p class="program-compose">아동 STS 또는 JTCI + 양육자 TCI + 해석보고서 + 해석상담</p>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">대상</span>
+              <p class="program-target-text">만 12개월 이상~고등학생 자녀와 양육자</p>
+            </div>
+            <div class="program-card-footer">
+              <span class="program-meta">70,000원 · 해석상담 포함</span>
+              <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
+            </div>
+          </article>
+          <article class="program-card fade-in">
+            <div class="program-card-head">
+              <div class="program-icon">💚</div>
+              <h3>양육태도검사</h3>
+            </div>
+            <p class="program-desc">아이의 기질과 감각 민감성, 양육자의 기질, 양육태도, 양육스트레스를 종합적으로 살펴보는 검사입니다. 아이의 문제 행동만 보는 것이 아니라, 아이의 특성과 양육자의 반응 방식, 현재 양육환경이 어떻게 맞물려 있는지 이해하고 구체적인 양육 방향을 찾습니다.</p>
+            <div class="program-field">
+              <span class="program-field-label">추천 대상</span>
+              <div class="program-pills">
+                <span class="program-pill">아이의 문제 행동 원인을 더 깊이 이해하고 싶은 경우</span>
+                <span class="program-pill">양육 스트레스가 높고 방향을 잡고 싶은 경우</span>
+                <span class="program-pill">나의 양육 방식이 아이의 기질에 맞는지 궁금한 경우</span>
+              </div>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">검사 구성</span>
+              <p class="program-compose">아동 STS 또는 JTCI + SSP + 양육자 TCI + PAT-2 + K-PSI-4-SF + 해석보고서 + 해석상담</p>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">대상</span>
+              <p class="program-target-text">만 12개월 이상~고등학생 자녀와 양육자</p>
+            </div>
+            <div class="program-card-footer">
+              <span class="program-meta">150,000원 · 해석상담 포함</span>
+              <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
+            </div>
+          </article>
+          <article class="program-card fade-in">
+            <div class="program-card-head">
+              <div class="program-icon">🧘</div>
+              <h3>마음챙김검사</h3>
+            </div>
+            <p class="program-desc">청소년과 성인을 대상으로 타고난 기질, 현재 형성된 성격, 심리·정서 상태를 종합적으로 살펴보는 마음건강검진입니다. 현재의 어려움이 기질적 특성과 어떤 관련이 있는지, 정서적으로 어떤 부담이 누적되어 있는지 이해하고 회복과 성장의 방향을 찾습니다.</p>
+            <div class="program-field">
+              <span class="program-field-label">추천 대상</span>
+              <div class="program-pills">
+                <span class="program-pill">현재 나의 심리·정서 상태를 객관적으로 알고 싶은 경우</span>
+                <span class="program-pill">대인관계, 학업, 일상 적응의 어려움으로 상담을 고민하는 경우</span>
+                <span class="program-pill">청소년 자녀의 마음 상태를 더 깊이 이해하고 싶은 경우</span>
+              </div>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">검사 구성</span>
+              <p class="program-compose">TCI + MMPI + SCT + 해석보고서 + 해석상담</p>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">대상</span>
+              <p class="program-target-text">중학생~성인</p>
+            </div>
+            <div class="program-card-footer">
+              <span class="program-meta">100,000원 · 해석상담 포함</span>
+              <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
+            </div>
+          </article>
+          <article class="program-card fade-in">
+            <div class="program-card-head">
+              <div class="program-icon">📚</div>
+              <h3>학습진로검사</h3>
+            </div>
+            <p class="program-desc">초등학교 4학년부터 고등학생을 대상으로 기질, 학습 특성, 진로 흥미를 종합적으로 살펴보는 검사입니다. 아이에게 맞는 학습 방법과 진로 방향을 이해하고, 학업 스트레스나 진로 고민을 아이의 특성에 맞게 지원할 수 있도록 돕습니다.</p>
+            <div class="program-field">
+              <span class="program-field-label">추천 대상</span>
+              <div class="program-pills">
+                <span class="program-pill">아이에게 맞는 학습 방법을 알고 싶은 경우</span>
+                <span class="program-pill">학습 어려움의 원인을 파악하고 싶은 경우</span>
+                <span class="program-pill">진학이나 진로 방향을 함께 고민하고 싶은 경우</span>
+              </div>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">검사 구성</span>
+              <p class="program-compose">JTCI + WISE 학습종합검사 + Holland 진로발달검사 + 양육자 TCI + 해석보고서 + 해석상담</p>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">대상</span>
+              <p class="program-target-text">초등학교 4학년~고등학생</p>
+            </div>
+            <div class="program-card-footer">
+              <span class="program-meta">120,000원 · 해석상담 포함</span>
+              <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
+            </div>
+          </article>
+          <article class="program-card fade-in">
+            <div class="program-card-head">
+              <div class="program-icon">💑</div>
+              <h3>짝꿍 기질 및 성격검사</h3>
+            </div>
+            <p class="program-desc">배우자나 연인이 서로의 타고난 기질과 성격 특성을 이해하고, 관계 안에서 반복되는 갈등의 패턴을 살펴보는 검사입니다. 서로 다른 두 사람이 어떻게 느끼고 반응하는지 이해하며, 더 건강하게 관계를 조율할 수 있도록 돕습니다.</p>
+            <div class="program-field">
+              <span class="program-field-label">추천 대상</span>
+              <div class="program-pills">
+                <span class="program-pill">결혼을 앞두고 서로를 더 깊이 이해하고 싶은 경우</span>
+                <span class="program-pill">관계에서 반복되는 갈등의 이유를 알고 싶은 경우</span>
+                <span class="program-pill">출산이나 양육을 앞두고 팀워크를 단단히 하고 싶은 경우</span>
+              </div>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">검사 구성</span>
+              <p class="program-compose">성인 2인 TCI + 해석보고서 + 해석상담</p>
+            </div>
+            <div class="program-field">
+              <span class="program-field-label">대상</span>
+              <p class="program-target-text">배우자, 연인, 예비부부, 예비부모</p>
+            </div>
+            <div class="program-card-footer">
+              <span class="program-meta">70,000원 · 두 사람 함께 참여</span>
+              <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="signs" id="signs">
+    <div class="container">
+      <div class="section-header-center fade-in">
+        <span class="section-label">When to Seek Help</span>
+        <h2 class="section-title">이런 모습이 지속된다면<br />상담을 고려해보세요</h2>
+        <p class="section-desc">
+          모든 아이에게 나타날 수 있는 모습이지만,<br />
+          오래 지속되거나 일상생활에 영향을 준다면 전문가와 함께 살펴보는 것이 도움이 될 수 있습니다.
+        </p>
+      </div>
+      <div class="signs-grid">
+        <div class="signs-card fade-in">
+          <h3>1. 정서적 어려움</h3>
+          <ul>
+            <li>자신감이 없고 위축되어 있는 경우</li>
+            <li>우울하거나 불안해 보이는 경우</li>
+            <li>짜증이 많고 신경질적인 반응이 잦은 경우</li>
+            <li>부모와 떨어지기를 유난히 힘들어하는 경우</li>
+          </ul>
+        </div>
+        <div class="signs-card fade-in">
+          <h3>2. 행동적 어려움</h3>
+          <ul>
+            <li>공격적이거나 반항적인 행동이 반복되는 경우</li>
+            <li>주의가 산만하고 집중이 어려운 경우</li>
+            <li>충동적이거나 과잉행동이 두드러지는 경우</li>
+          </ul>
+        </div>
+        <div class="signs-card fade-in">
+          <h3>3. 관계의 어려움</h3>
+          <ul>
+            <li>친구들과 잘 어울리지 못하는 경우</li>
+            <li>유치원이나 학교 적응이 어려운 경우</li>
+            <li>친구를 때리거나 괴롭히는 행동이 반복되는 경우</li>
+          </ul>
+        </div>
+        <div class="signs-card fade-in">
+          <h3>4. 발달 및 기타 어려움</h3>
+          <ul>
+            <li>전반적인 발달이 늦고 정서적 어려움이 함께 보이는 경우</li>
+            <li>의사소통이나 상호작용 발달이 지연된 경우</li>
+            <li>틱, 악몽, 야뇨, 형제 갈등 등으로 어려움이 있는 경우</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header-center fade-in">
+        <span class="section-label">Process</span>
+        <h2 class="section-title">상담은 이렇게 진행됩니다</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step fade-in">
+          <div class="process-num">1</div>
+          <h3>사전 문의 및 신청</h3>
+          <p>네이버 예약 또는 문자·카카오채널로 문의해 주시면 확인 후 연락드립니다.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-num">2</div>
+          <h3>접수상담</h3>
+          <p>아동과 만나기 전, 보호자와 함께 주호소 문제, 가족의 양육 방식, 환경을 살펴보고 상담 방향을 세웁니다.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-num">3</div>
+          <h3>심리검사</h3>
+          <p>필요한 경우 아동과 양육자를 보다 면밀히 이해하기 위한 심리검사를 선택적으로 진행할 수 있습니다.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-num">4</div>
+          <h3>정기 상담</h3>
+          <p>주 1회 상담을 진행하며, 매 회기 후 부모상담을 통해 아이의 변화를 함께 관찰합니다.</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-num">5</div>
+          <h3>종결</h3>
+          <p>아동의 어려움이 완화되고 양육 효능감이 높아지면, 충분히 이별을 준비하며 자연스럽게 종결합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-label">Fees</span>
+        <h2 class="section-title">비용 안내</h2>
+        <div class="pricing-box">
+          <div class="pricing-list">
+            <div class="pricing-item">
+              <span>첫 만남 접수상담</span>
+              <span>70,000원 / 50분 · 보호자만</span>
+            </div>
+            <div class="pricing-item">
+              <span>놀이치료·청소년상담</span>
+              <span>70,000원 / 회기당 55분</span>
+            </div>
+            <div class="pricing-item">
+              <span>아이와 나, 기질검사</span>
+              <span>70,000원</span>
+            </div>
+            <div class="pricing-item">
+              <span>양육태도검사</span>
+              <span>150,000원</span>
+            </div>
+            <div class="pricing-item">
+              <span>마음챙김검사</span>
+              <span>100,000원</span>
+            </div>
+            <div class="pricing-item">
+              <span>학습진로검사</span>
+              <span>120,000원</span>
+            </div>
+            <div class="pricing-item">
+              <span>짝꿍 기질 및 성격검사</span>
+              <span>70,000원</span>
+            </div>
+          </div>
+          <div class="pricing-policy">
+            <strong>취소 및 예약 안내</strong>
+            모든 프로그램은 사전예약제로 운영됩니다. 첫 회기 접수상담은 노쇼 방지를 위해 비용을 미리 입금받고 있으며,
+            이후 상담은 현장 결제가 가능합니다. 검사 프로그램은 약속 시간 24시간 전까지 일정 변경이 가능하며,
+            24시간 이내 취소 시 비용의 50%가 부과될 수 있습니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info fade-in">
+          <span class="section-label">Contact</span>
+          <h2 class="section-title">문의하기</h2>
+          <p class="contact-notice">
+            상담 중에는 통화 및 응대가 어려울 수 있습니다.
+            문의가 있는 경우 문자 또는 카카오채널로 남겨주시면 확인 후 답변드립니다.
+          </p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              <div>
+                <strong>전화</strong>
+                <a href="tel:01057940925">010-5794-0925</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">✉️</div>
+              <div>
+                <strong>이메일</strong>
+                <a href="mailto:deartogrow@naver.com">deartogrow@naver.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">💬</div>
+              <div>
+                <strong>카카오채널</strong>
+                <span>같이크는마음</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <strong>주소</strong>
+                <span>서울 노원구 공릉로34길 86 태릉해링턴플레이스 상가 2층</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-booking-card fade-in">
+          <h3>상담 신청 및 예약</h3>
+          <p>
+            모든 프로그램은 사전예약제로 운영됩니다. 원하시는 상담 또는 검사를 네이버 예약에서 선택해 신청해 주세요.
+            상담 중에는 통화 응대가 어려울 수 있어 문자 또는 카카오채널로 문의를 남겨주시면 확인 후 답변드립니다.
+          </p>
+          <div class="contact-booking-actions">
+            <a href="https://naver.me/GWi0F7q2" class="btn btn-primary" target="_blank" rel="noopener noreferrer">네이버 예약 바로가기</a>
+            <a href="tel:01057940925" class="btn btn-secondary">문자 문의하기</a>
+            <a href="mailto:deartogrow@naver.com" class="btn btn-secondary">이메일 문의하기</a>
+          </div>
+          <p class="contact-kakao-note"><strong>카카오채널:</strong> 같이크는마음</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <span class="logo-text">같이크는마음</span>
+          </a>
+          <p>
+            아이와 양육자가 서로를 이해하고,<br />
+            함께 건강하게 자라도록 돕습니다.
+          </p>
+        </div>
+        <div>
+          <h4>바로가기</h4>
+          <ul>
+            <li><a href="#about">소개</a></li>
+            <li><a href="#counselor">상담자</a></li>
+            <li><a href="#programs">프로그램</a></li>
+            <li><a href="#process">절차</a></li>
+            <li><a href="#pricing">비용</a></li>
+            <li><a href="#contact">문의</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>연락처</h4>
+          <ul>
+            <li><a href="tel:01057940925">010-5794-0925</a></li>
+            <li><a href="mailto:deartogrow@naver.com">deartogrow@naver.com</a></li>
+            <li><a href="https://naver.me/GWi0F7q2" target="_blank" rel="noopener noreferrer">네이버 예약</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 같이크는마음. All rights reserved.</span>
+        <span>사업자등록번호 468-90-01884</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      nav.classList.toggle('open');
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        nav.classList.remove('open');
+      });
+    });
+
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

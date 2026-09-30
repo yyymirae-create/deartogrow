@@ -484,51 +484,6 @@
       color: var(--gray-text);
     }
 
-    .about-gallery {
-      margin-top: 56px;
-    }
-
-    .about-gallery-title {
-      font-family: 'KoPub Dotum Pro', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--sage-dark);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .about-gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-    }
-
-    .about-gallery-item {
-      border-radius: var(--radius);
-      overflow: hidden;
-      aspect-ratio: 1;
-      border: 1px solid var(--border-soft);
-      background: var(--cream-card);
-    }
-
-    .about-gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease, filter 0.35s ease;
-    }
-
-    .about-gallery-item:hover img {
-      transform: scale(1.03);
-      filter: brightness(1.04);
-    }
-
-    .about-gallery-item--logo img {
-      object-fit: contain;
-      padding: 12px;
-      background: var(--cream-light);
-    }
-
     .about-values {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1047,13 +1002,6 @@
       margin-bottom: 6px;
     }
 
-    .lightbox-caption {
-      font-size: 0.82rem;
-      opacity: 0.9;
-      max-width: min(90vw, 520px);
-      line-height: 1.5;
-    }
-
     body.lightbox-open {
       overflow: hidden;
     }
@@ -1392,10 +1340,6 @@
         gap: 40px;
       }
 
-      .about-gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
       .space-gallery-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1474,10 +1418,6 @@
       .contact-booking-card { padding: 28px 24px; }
 
 
-
-      .about-gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
 
       .space-gallery-grid {
         grid-template-columns: 1fr;
@@ -1608,26 +1548,6 @@
               <p>아이와 양육자가 서로를 이해하며 함께 성장하도록 돕습니다</p>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="about-gallery fade-in">
-        <p class="about-gallery-title">상담소 공간을 둘러보세요</p>
-        <div class="about-gallery-grid">
-          <figure class="about-gallery-item"><img src="images/about-01-sign.jpg" alt="같이크는마음 아동청소년상담소 안내" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-02-consult.jpg" alt="1:1 상담실" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-03-family-room.jpg" alt="가족 상담 공간" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-04-playroom.jpg" alt="놀이치료실 전경" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-05-play-area.jpg" alt="놀이 공간" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-06-toys.jpg" alt="놀이치료 도구" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-07-books.jpg" alt="심리·놀이치료 도서" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-08-decor.jpg" alt="따뜻한 상담실 분위기" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-09-child-play.jpg" alt="놀이를 통한 마음 표현" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-10-child-shelf.jpg" alt="아이 눈높이의 놀이 공간" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-11-bookshelf.jpg" alt="책과 자료가 있는 공간" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-12-child-play.jpg" alt="놀이치료 장면" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-13-child-activity.jpg" alt="아이의 집중된 놀이" loading="lazy" /></figure>
-          <figure class="about-gallery-item"><img src="images/about-14-message.jpg" alt="상담 철학 메시지" loading="lazy" /></figure>
-          <figure class="about-gallery-item about-gallery-item--logo"><img src="images/logo_color.png" alt="같이크는마음 로고" loading="lazy" /></figure>
         </div>
       </div>
     </div>
@@ -1840,7 +1760,7 @@
     <div class="container">
       <div class="section-header-center fade-in">
         <span class="section-label">Space</span>
-        <h2 class="section-title">공간의 분위기</h2>
+        <h2 class="section-title">상담소 공간을 둘러보세요</h2>
         <p class="section-desc">따뜻하고 편안한 상담 공간을 사진으로 만나보세요. 썸네일을 누르면 크게 볼 수 있습니다.</p>
       </div>
       <div class="space-gallery-grid" id="spaceGalleryGrid">
@@ -1890,7 +1810,7 @@
     </div>
   </section>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="상담소 사진 크게 보기">
     <div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true"></div>
     <button type="button" class="lightbox-close" id="lightboxClose" aria-label="닫기">×</button>
     <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="이전 사진">‹</button>
@@ -1899,7 +1819,6 @@
       <img class="lightbox-image" id="lightboxImage" src="" alt="" />
       <div class="lightbox-meta">
         <p class="lightbox-counter" id="lightboxCounter">1 / 14</p>
-        <p class="lightbox-caption" id="lightboxCaption"></p>
       </div>
     </div>
   </div>
@@ -2233,7 +2152,6 @@
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxCounter = document.getElementById('lightboxCounter');
-    const lightboxCaption = document.getElementById('lightboxCaption');
     const lightboxOverlay = document.getElementById('lightboxOverlay');
     const lightboxClose = document.getElementById('lightboxClose');
     const lightboxPrev = document.getElementById('lightboxPrev');
@@ -2248,7 +2166,6 @@
       const item = galleryImages[galleryIndex];
       lightboxImage.src = item.src;
       lightboxImage.alt = item.alt;
-      lightboxCaption.textContent = item.alt;
       lightboxCounter.textContent = `${galleryIndex + 1} / ${galleryImages.length}`;
     }
 

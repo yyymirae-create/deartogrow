@@ -117,6 +117,8 @@
       background: var(--cream-bg);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      word-break: keep-all;
+      overflow-wrap: break-word;
     }
 
     h1, h2, h3, h4 {
@@ -124,7 +126,33 @@
       font-weight: 500;
       line-height: 1.4;
       color: var(--navy-text);
+      text-wrap: balance;
     }
+
+    /* Keep Korean words and short information units together. */
+    p, li, .program-pill, .program-meta, .fee-detail, .hero-badge {
+      text-wrap: pretty;
+    }
+
+    .text-unit {
+      display: inline-block;
+      max-width: 100%;
+      vertical-align: top;
+    }
+
+    .copy-line { display: block; }
+
+    .hero-content, .about-content, .counselor-head, .detail-block,
+    .program-card, .program-card-head h3, .program-pill, .fee-group,
+    .contact-info, .contact-item > div:last-child, .footer-grid > div {
+      min-width: 0;
+    }
+
+    .program-card-head h3, .program-meta, .program-pill {
+      max-width: 100%;
+    }
+
+    .program-meta { flex: 1 1 180px; }
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
@@ -566,10 +594,9 @@
       display: inline;
     }
 
-    @media (min-width: 900px) {
-      .text-keep-line {
-        white-space: nowrap;
-      }
+    .counselor-intro-text .text-keep-line {
+      display: block;
+      margin-top: .65em;
     }
 
     .counselor-intro-text {
@@ -838,7 +865,7 @@
     .fee-group-header p { font-size: .8rem; margin-top: 4px; }
     .fee-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px; min-height: 114px; padding: 23px 0; border-bottom: 1px solid var(--border-soft); }
     .fee-row:last-child { border-bottom: 0; padding-bottom: 0; }
-    .fee-row dt { min-width: 0; color: var(--navy-text); font-size: .95rem; font-weight: 600; word-break: keep-all; overflow-wrap: anywhere; }
+    .fee-row dt { min-width: 0; color: var(--navy-text); font-size: .95rem; font-weight: 600; word-break: keep-all; overflow-wrap: break-word; }
     .fee-detail { display: block; margin-top: 6px; font-size: .78rem; font-weight: 400; line-height: 1.65; color: var(--gray-text); }
     .fee-row dd { color: var(--primary-green-dark); font-size: 1.12rem; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
     .fee-row dd small { font-size: .78rem; font-weight: 400; margin-left: 2px; }
@@ -1081,7 +1108,7 @@
     .line-icon { width: 24px; height: 24px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
     .step-number { display: block; font-size: .7rem; letter-spacing: .08em; color: var(--sage-dark); margin-bottom: 5px; font-weight: 600; }
     .process-step h4 { font-size: .98rem; margin-bottom: 10px; }
-    .process-step p { font-size: .82rem; line-height: 1.8; word-break: keep-all; overflow-wrap: anywhere; }
+    .process-step p { font-size: .82rem; line-height: 1.8; word-break: keep-all; overflow-wrap: break-word; }
     .step-badge { display: inline-block; margin-top: 12px; padding: 4px 9px; border-radius: 7px; background: var(--warm-ivory); color: var(--primary-green-dark); font-size: .73rem; font-weight: 600; }
     .process-note { margin-top: 26px; padding: 15px 18px; background: var(--primary-green-soft); border-radius: var(--radius); font-size: .8rem; line-height: 1.8; }
     .process-note strong { color: var(--primary-green-dark); }
@@ -1485,7 +1512,7 @@
   <section class="hero" id="hero">
     <div class="container hero-grid">
       <div class="hero-content fade-in">
-        <div class="hero-badge">아동·청소년 상담 · 놀이치료 · 양육상담 · 심리검사</div>
+        <div class="hero-badge"><span class="text-unit">아동·청소년 상담</span> <span class="text-unit">· 놀이치료</span> <span class="text-unit">· 양육상담</span> <span class="text-unit">· 심리검사</span></div>
         <h1>아이와 양육자의 마음이<br />함께 자라는 곳</h1>
         <p class="hero-desc">
           같이크는마음은 아동·청소년의 놀이치료와 심리상담, 양육상담, 심리검사를 통해
@@ -1568,7 +1595,7 @@
       <div class="section-header-center fade-in">
         <span class="section-label">Counselor</span>
         <h2 class="section-title">상담자를 소개합니다</h2>
-        <p class="section-desc"><span class="text-keep-line">직장어린이집 보육교사 경력을 바탕으로 아이의 발달과 양육환경을 함께 이해하며 상담합니다.</span></p>
+        <p class="section-desc"><span class="copy-line">직장어린이집 보육교사 경력을 바탕으로</span> <span class="copy-line">아이의 발달과 양육환경을 함께 이해하며 상담합니다.</span></p>
       </div>
       <article class="counselor-single fade-in">
         <div class="counselor-top">
@@ -1633,8 +1660,8 @@
         <span class="section-label">Programs</span>
         <h2 class="section-title">프로그램 안내</h2>
         <p class="section-desc">
-          아이의 나이와 상황에 맞는 상담과 검사를 제공합니다.
-          상담과 검사는 각각의 목적이 다르므로, 필요한 경우 접수 상담을 통해 현재 상황에 맞는 방향을 함께 정합니다.
+          <span class="copy-line">아이의 나이와 상황에 맞는 상담과 검사를 제공합니다.</span>
+          <span class="copy-line">상담과 검사는 각각의 목적이 다르므로, 필요한 경우 접수 상담을 통해 현재 상황에 맞는 방향을 함께 정합니다.</span>
         </p>
       </div>
 
@@ -1647,7 +1674,7 @@
           <article class="program-card fade-in">
             <div class="program-card-head">
               <div class="program-icon">🧸</div>
-              <h3>놀이치료 / 청소년 상담</h3>
+              <h3><span class="text-unit">놀이치료 /</span> <span class="text-unit">청소년 상담</span></h3>
             </div>
             <p class="program-desc">아이와 청소년의 발달 수준, 성향과 현재의 어려움에 맞춰 놀이와 대화를 활용해 상담합니다. 말로 표현하기 어려운 감정과 생각을 안전하게 표현하고, 정서·행동·또래관계·가족관계에서 겪는 어려움을 함께 이해합니다. 청소년도 필요에 따라 놀이를 활용한 상담을 진행하며, 부모상담을 통해 가정에서의 지원 방향을 함께 나눕니다.</p>
             <div class="program-field">
@@ -1656,7 +1683,7 @@
             </div>
             <div class="program-field">
               <span class="program-field-label">구성</span>
-              <p class="program-compose">아동·청소년 상담 40분 + 부모상담 15분</p>
+              <p class="program-compose"><span class="text-unit">아동·청소년 상담 40분</span> <span class="text-unit">+ 부모상담 15분</span></p>
             </div>
             <div class="program-field">
               <span class="program-field-label">시간</span>
@@ -1667,7 +1694,7 @@
               <p class="program-compose">주 1회 권장</p>
             </div>
             <div class="program-card-footer">
-              <span class="program-meta">70,000원 · 회기당 55분</span>
+              <span class="program-meta"><span class="text-unit">70,000원</span> <span class="text-unit">· 회기당 55분</span></span>
               <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
             </div>
           </article>
@@ -1694,7 +1721,7 @@
               <p class="program-compose">보호자 상담 50분</p>
             </div>
             <div class="program-card-footer">
-              <span class="program-meta">70,000원 · 보호자 상담 50분</span>
+              <span class="program-meta"><span class="text-unit">70,000원</span> <span class="text-unit">· 보호자 상담 50분</span></span>
               <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
             </div>
           </article>
@@ -1710,7 +1737,7 @@
           <article class="program-card fade-in">
             <div class="program-card-head">
               <div class="program-icon">🌈</div>
-              <h3>아이와 나 기질 검사</h3>
+              <h3><span class="text-unit">아이와 나</span> <span class="text-unit">기질 검사</span></h3>
             </div>
             <p class="program-desc">아이와 양육자의 타고난 기질과 현재 형성된 성격 특성을 함께 살펴보는 검사입니다. 아이가 예민한 편인지, 낯선 상황에 조심스러운지, 자극을 많이 추구하는지, 끈기가 어느 정도인지 등을 이해하고, 양육자와 아이의 기질 차이가 관계 안에서 어떻게 부딪히거나 조화를 이루는지 살펴봅니다.</p>
             <div class="program-field">
@@ -1723,7 +1750,7 @@
             </div>
             <div class="program-field">
               <span class="program-field-label">검사 구성</span>
-              <p class="program-compose">아동 STS 또는 JTCI + 양육자 TCI + 해석보고서 + 해석상담</p>
+              <p class="program-compose"><span class="text-unit">아동 STS 또는 JTCI</span> <span class="text-unit">+ 양육자 TCI</span> <span class="text-unit">+ 해석보고서</span> <span class="text-unit">+ 해석상담</span></p>
             </div>
             <div class="program-field">
               <span class="program-field-label">대상</span>
@@ -1734,7 +1761,7 @@
               <p class="program-compose">1시간</p>
             </div>
             <div class="program-card-footer">
-              <span class="program-meta">70,000원 · 해석상담 및 해석 보고서 포함</span>
+              <span class="program-meta"><span class="text-unit">70,000원</span> <span class="text-unit">· 해석상담 및 해석 보고서 포함</span></span>
               <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
             </div>
           </article>
@@ -1754,7 +1781,7 @@
             </div>
             <div class="program-field">
               <span class="program-field-label">검사 구성</span>
-              <p class="program-compose">아동 STS 또는 JTCI + SSP + 양육자 TCI + PAT-2 + K-PSI-4-SF + 해석보고서 + 해석상담</p>
+              <p class="program-compose"><span class="text-unit">아동 STS 또는 JTCI</span> <span class="text-unit">+ SSP</span> <span class="text-unit">+ 양육자 TCI</span> <span class="text-unit">+ PAT-2</span> <span class="text-unit">+ K-PSI-4-SF</span> <span class="text-unit">+ 해석보고서</span> <span class="text-unit">+ 해석상담</span></p>
             </div>
             <div class="program-field">
               <span class="program-field-label">대상</span>
@@ -1765,7 +1792,7 @@
               <p class="program-compose">1시간 30분</p>
             </div>
             <div class="program-card-footer">
-              <span class="program-meta">150,000원 · 해석상담 및 해석 보고서 포함</span>
+              <span class="program-meta"><span class="text-unit">150,000원</span> <span class="text-unit">· 해석상담 및 해석 보고서 포함</span></span>
               <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
             </div>
           </article>
@@ -1779,7 +1806,7 @@
       <div class="section-header-center fade-in">
         <span class="section-label">Space</span>
         <h2 class="section-title">상담소 공간을 둘러보세요</h2>
-        <p class="section-desc">따뜻하고 편안한 상담 공간을 사진으로 만나보세요. 썸네일을 누르면 크게 볼 수 있습니다.</p>
+        <p class="section-desc"><span class="copy-line">따뜻하고 편안한 상담 공간을 사진으로 만나보세요.</span> <span class="copy-line">썸네일을 누르면 크게 볼 수 있습니다.</span></p>
       </div>
       <div class="space-gallery-grid" id="spaceGalleryGrid">
         <button type="button" class="space-gallery-card fade-in" data-gallery-index="0" aria-label="같이크는마음 아동청소년상담소 안내 크게 보기">
@@ -1993,16 +2020,16 @@
           <article class="fee-group" aria-labelledby="counseling-fees-title">
             <div class="fee-group-header"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11a8 8 0 0 1-8 8H8l-5 3 1-6a8 8 0 1 1 17-5Z"/><path d="M8 10h8m-8 4h5"/></svg><div><h3 id="counseling-fees-title">상담</h3><p>1회 기준 · 프로그램별 시간 안내</p></div></div>
             <dl>
-              <div class="fee-row"><dt>접수 상담<span class="fee-detail">50분 · 보호자만 참여</span></dt><dd>70,000<small>원</small></dd></div>
-              <div class="fee-row"><dt>놀이치료 / 청소년 상담<span class="fee-detail">55분 · 아동·청소년 40분 + 부모상담 15분</span></dt><dd>70,000<small>원</small></dd></div>
-              <div class="fee-row"><dt>양육상담<span class="fee-detail">50분 · 보호자 상담</span></dt><dd>70,000<small>원</small></dd></div>
+              <div class="fee-row"><dt>접수 상담<span class="fee-detail"><span class="text-unit">50분 · 보호자만 참여</span></span></dt><dd>70,000<small>원</small></dd></div>
+              <div class="fee-row"><dt><span class="text-unit">놀이치료 /</span> <span class="text-unit">청소년 상담</span><span class="fee-detail"><span class="text-unit">55분</span> <span class="text-unit">· 아동·청소년 40분</span> <span class="text-unit">+ 부모상담 15분</span></span></dt><dd>70,000<small>원</small></dd></div>
+              <div class="fee-row"><dt>양육상담<span class="fee-detail"><span class="text-unit">50분 · 보호자 상담</span></span></dt><dd>70,000<small>원</small></dd></div>
             </dl>
           </article>
           <article class="fee-group" aria-labelledby="assessment-fees-title">
             <div class="fee-group-header"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5H6a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3"/><rect x="9" y="2" width="6" height="5" rx="1.5"/><path d="M8 12h8m-8 4h6"/></svg><div><h3 id="assessment-fees-title">심리검사</h3><p>프로그램별 비용 · 포함 내용 안내</p></div></div>
             <dl>
-              <div class="fee-row"><dt>아이와 나 기질 검사<span class="fee-detail">해석상담 1시간 + 해석 보고서 포함</span></dt><dd>70,000<small>원</small></dd></div>
-              <div class="fee-row"><dt>양육태도 검사<span class="fee-detail">해석상담 1시간 30분 + 해석 보고서 포함</span></dt><dd>150,000<small>원</small></dd></div>
+              <div class="fee-row"><dt><span class="text-unit">아이와 나</span> <span class="text-unit">기질 검사</span><span class="fee-detail"><span class="text-unit">해석상담 1시간</span> <span class="text-unit">+ 해석 보고서 포함</span></span></dt><dd>70,000<small>원</small></dd></div>
+              <div class="fee-row"><dt>양육태도 검사<span class="fee-detail"><span class="text-unit">해석상담 1시간 30분</span> <span class="text-unit">+ 해석 보고서 포함</span></span></dt><dd>150,000<small>원</small></dd></div>
               <div class="fee-row"><dt>초기 심리 검사<span class="fee-detail">놀이치료 / 청소년 상담 시작 과정에서 진행</span></dt><dd>70,000<small>원</small></dd></div>
             </dl>
           </article>

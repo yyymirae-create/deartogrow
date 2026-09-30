@@ -864,81 +864,25 @@
     }
 
     /* Pricing */
-    .pricing {
-      background: var(--cream-card);
-      padding: 80px 0;
-    }
-
-    .pricing-box {
-      background: var(--cream-light);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border-soft);
-    }
-
-    .pricing-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px 32px;
-      margin-bottom: 28px;
-    }
-
-    .pricing-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border-soft);
-      font-size: 0.9rem;
-    }
-
-    .pricing-item span:first-child { color: var(--navy-text); }
-    .pricing-item span:last-child {
-      color: var(--primary-green-dark);
-      font-weight: 500;
-      font-size: 0.85rem;
-      text-align: right;
-      line-height: 1.45;
-    }
-
-    .pricing-item--stacked > div:first-child span:last-child {
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 600px) {
-      .pricing-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-
-      .pricing-item span:last-child {
-        text-align: left;
-      }
-
-      .pricing-item--stacked > div:first-child {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-      }
-    }
-
-    .pricing-policy {
-      font-size: 0.82rem;
-      color: var(--gray-text);
-      line-height: 1.75;
-      padding: 20px;
-      background: var(--cream-bg);
-      border-radius: var(--radius);
-    }
-
-    .pricing-policy strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 0.85rem;
-    }
+    .pricing { background: var(--cream-card); padding: 80px 0; }
+    .fees-intro { margin: 16px 0 32px; color: var(--gray-text); }
+    .fee-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .fee-group { background: var(--cream-light); border: 1px solid var(--border-soft); border-radius: var(--radius-lg); padding: 28px; }
+    .fee-group-header { display: flex; align-items: center; gap: 12px; padding-bottom: 20px; border-bottom: 1px solid var(--border-soft); }
+    .fee-group-header h3 { font-size: 1.2rem; }
+    .fee-group-header p { font-size: .8rem; margin-top: 4px; }
+    .fee-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px; min-height: 114px; padding: 23px 0; border-bottom: 1px solid var(--border-soft); }
+    .fee-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .fee-row dt { min-width: 0; color: var(--navy-text); font-size: .95rem; font-weight: 600; word-break: keep-all; overflow-wrap: anywhere; }
+    .fee-detail { display: block; margin-top: 6px; font-size: .78rem; font-weight: 400; line-height: 1.65; color: var(--gray-text); }
+    .fee-row dd { color: var(--primary-green-dark); font-size: 1.12rem; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .fee-row dd small { font-size: .78rem; font-weight: 400; margin-left: 2px; }
+    .fee-note { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0; padding: 16px 20px; background: var(--primary-green-soft); border-radius: var(--radius); font-size: .82rem; line-height: 1.75; }
+    .fee-note strong { color: var(--primary-green-dark); }
+    .pricing-policy { padding: 24px 28px; border: 1px solid var(--border-soft); border-radius: var(--radius); font-size: .82rem; line-height: 1.8; }
+    .pricing-policy h3 { font-size: .95rem; margin-bottom: 10px; }
+    .pricing-policy ul { padding-left: 18px; }
+    .pricing-policy li + li { margin-top: 5px; }
 
     /* Space gallery + lightbox */
     .space-gallery {
@@ -1163,108 +1107,46 @@
 
     /* Process */
     .process { background: var(--primary-green-soft); }
+    .process .container { max-width: 1200px; }
+    .process-tracks { display: grid; gap: 28px; }
+    .process-track { background: rgba(254, 254, 253, .7); border-radius: var(--radius-lg); padding: 30px; border: 1px solid var(--border-soft); }
+    .process-track-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+    .track-label { display: grid; place-items: center; flex-shrink: 0; width: 42px; height: 42px; border-radius: 14px; background: var(--primary-green-soft); color: var(--primary-green-dark); font-size: .75rem; font-weight: 700; }
+    .process-track--assessment .track-label { background: var(--warm-ivory); color: var(--warm-brown); }
+    .process-track-title { font-size: 1.15rem; line-height: 1.45; }
+    .process-track-sub { font-size: .82rem; margin-top: 5px; line-height: 1.6; }
+    .process-steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; list-style: none; }
+    .process-steps--four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .process-step { position: relative; min-width: 0; }
+    .process-step:not(:last-child)::after { content: '→'; position: absolute; top: 13px; right: -19px; color: var(--sage-dark); font-size: 1.1rem; }
+    .step-icon { display: grid; place-items: center; width: 50px; height: 50px; border: 1px solid var(--border-soft); border-radius: 16px; background: var(--cream-light); color: var(--primary-green-dark); margin-bottom: 16px; }
+    .line-icon { width: 24px; height: 24px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .step-number { display: block; font-size: .7rem; letter-spacing: .08em; color: var(--sage-dark); margin-bottom: 5px; font-weight: 600; }
+    .process-step h4 { font-size: .98rem; margin-bottom: 10px; }
+    .process-step p { font-size: .82rem; line-height: 1.8; word-break: keep-all; overflow-wrap: anywhere; }
+    .step-badge { display: inline-block; margin-top: 12px; padding: 4px 9px; border-radius: 7px; background: var(--warm-ivory); color: var(--primary-green-dark); font-size: .73rem; font-weight: 600; }
+    .process-note { margin-top: 26px; padding: 15px 18px; background: var(--primary-green-soft); border-radius: var(--radius); font-size: .8rem; line-height: 1.8; }
+    .process-note strong { color: var(--primary-green-dark); }
 
-    .process-tracks {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: start;
+    @media (max-width: 1000px) {
+      .process-steps, .process-steps--four { grid-template-columns: 1fr; gap: 0; }
+      .process-step { display: grid; grid-template-columns: 50px minmax(0, 1fr); column-gap: 18px; padding-bottom: 26px; }
+      .step-icon { grid-row: 1 / 5; margin: 0; position: relative; z-index: 1; }
+      .process-step:not(:last-child)::after { content: ''; top: 55px; bottom: 5px; left: 24px; right: auto; border-left: 1px dashed var(--sage-dark); }
+      .process-step:last-child { padding-bottom: 0; }
+      .process-step h4 { margin-bottom: 5px; }
+      .step-badge { justify-self: start; }
     }
-
-    .process-track {
-      background: rgba(254, 254, 253, 0.55);
-      border-radius: var(--radius-lg);
-      padding: 24px 20px 28px;
-      border: 1px solid var(--border-soft);
-    }
-
-    .process-track-title {
-      font-family: 'KoPub Batang Pro', serif;
-      font-size: 1.05rem;
-      color: var(--navy-text);
-      margin-bottom: 8px;
-      line-height: 1.45;
-    }
-
-    .process-track-sub {
-      font-size: 0.82rem;
-      color: var(--gray-text);
-      margin-bottom: 20px;
-      line-height: 1.55;
-    }
-
-    .process-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .process-step {
-      background: var(--cream-light);
-      border-radius: var(--radius-lg);
-      padding: 24px 20px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border-soft);
-      position: relative;
-    }
-
-    .process-num {
-      width: 32px;
-      height: 32px;
-      background: var(--primary-green);
-      color: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 14px;
-    }
-
-    .process-step h3 {
-      font-size: 0.95rem;
-      margin-bottom: 10px;
-    }
-
-    .process-step p {
-      font-size: 0.8rem;
-      color: var(--gray-text);
-      line-height: 1.6;
-    }
-
-    .process-deadline {
-      display: block;
-      margin-top: 10px;
-      padding: 10px 12px;
-      background: var(--warm-ivory);
-      border: 1px solid rgba(200, 157, 100, 0.35);
-      border-radius: var(--radius);
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--primary-green-dark);
-      line-height: 1.55;
-    }
-
-    .pricing-item--stacked {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 8px;
-    }
-
-    .pricing-item--stacked > div:first-child {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-    }
-
-    .pricing-item-note {
-      font-size: 0.8rem;
-      color: var(--gray-text);
-      font-weight: 400;
-      line-height: 1.65;
-      margin: 0;
+    @media (max-width: 760px) {
+      .fee-groups { grid-template-columns: 1fr; gap: 16px; }
+      .fee-group, .process-track { padding: 22px 18px; }
+      .fee-row { gap: 10px; }
+      .fee-row dt { font-size: .87rem; }
+      .fee-row dd { font-size: 1rem; }
+      .pricing-policy { padding: 20px; }
+      .fee-note { padding: 16px; }
+      .process-track-title { font-size: 1.05rem; }
+      .process-track-header { align-items: flex-start; }
     }
 
     /* Contact */
@@ -1519,8 +1401,7 @@
       }
 
       .program-grid,
-      .signs-grid,
-      .pricing-list {
+      .signs-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1593,7 +1474,6 @@
       .contact-booking-card { padding: 28px 24px; }
 
 
-      .pricing-box { padding: 28px 24px; }
 
       .about-gallery-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1884,7 +1764,7 @@
               <p class="program-compose">보호자 상담 50분</p>
             </div>
             <div class="program-card-footer">
-              <span class="program-meta">50분</span>
+              <span class="program-meta">70,000원 · 보호자 상담 50분</span>
               <a href="https://naver.me/GWi0F7q2" class="btn-book" target="_blank" rel="noopener noreferrer">네이버 예약하기</a>
             </div>
           </article>
@@ -2077,65 +1957,91 @@
       <div class="section-header-center fade-in">
         <span class="section-label">Process</span>
         <h2 class="section-title">상담과 검사는 이렇게 진행됩니다</h2>
+        <p class="section-desc">신청부터 상담까지, 이용하실 프로그램의 순서를 확인해 주세요.</p>
       </div>
       <div class="process-tracks">
-        <div class="process-track fade-in">
-          <h3 class="process-track-title">A. 놀이치료 / 청소년 상담 진행</h3>
-          <div class="process-steps">
-            <div class="process-step">
-              <div class="process-num">1</div>
-              <h3>네이버 예약</h3>
-              <p>네이버 예약에서 접수 상담(접수 면접)을 신청해 주세요. 접수 면접지는 상담 전에 미리 보내드립니다.</p>
-            </div>
-            <div class="process-step">
-              <div class="process-num">2</div>
-              <h3>접수 상담</h3>
-              <p>미리 작성해 주신 접수 면접지를 바탕으로 보호자와 함께 아이의 주된 어려움, 양육 과정과 발달 이력을 살펴봅니다. 이를 통해 앞으로의 상담 목표와 진행 방향을 함께 논의합니다.</p>
-            </div>
-            <div class="process-step">
-              <div class="process-num">3</div>
-              <h3>초기 심리 검사</h3>
-              <p>타 기관에서 심리검사를 받은 이력이 없는 경우, 상담을 시작하기 위한 초기 심리 검사를 필수로 진행합니다. 기존 검사 결과가 있는 경우에는 결과지를 준비해 주세요.</p>
-            </div>
-            <div class="process-step">
-              <div class="process-num">4</div>
-              <h3>정기 상담</h3>
+        <article class="process-track fade-in" aria-labelledby="counseling-process-title">
+          <div class="process-track-header">
+            <span class="track-label" aria-hidden="true">상담</span>
+            <div><h3 class="process-track-title" id="counseling-process-title">놀이치료 / 청소년 상담</h3>
+            <p class="process-track-sub">첫 만남부터 정기 상담과 종결까지 함께합니다.</p></div>
+          </div>
+          <ol class="process-steps" role="list">
+            <li class="process-step">
+              <span class="step-icon"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 10h18m-13 5h2m4 0h2"/></svg></span>
+              <span class="step-number">01</span>
+              <h4>네이버 예약</h4>
+              <p>접수 상담(접수 면접)을 신청해 주세요. 상담 전에 보내드리는 접수 면접지를 작성합니다.</p>
+              
+            </li>
+            <li class="process-step">
+              <span class="step-icon"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5H6a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3"/><rect x="9" y="2" width="6" height="5" rx="1.5"/><path d="M8 12h8m-8 4h6"/></svg></span>
+              <span class="step-number">02</span>
+              <h4>접수 상담</h4>
+              <p>작성한 면접지를 바탕으로 아이의 어려움, 양육 과정과 발달 이력을 살펴보고 상담 목표와 방향을 함께 정합니다.</p>
+              
+            </li>
+            <li class="process-step">
+              <span class="step-icon"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7"/><path d="m15 15 6 6M7 10l2 2 4-4"/></svg></span>
+              <span class="step-number">03</span>
+              <h4>초기 심리 검사</h4>
+              <p>아이와 양육자를 이해하기 위한 검사를 진행합니다. 기존 검사 결과가 있다면 준비해 주세요.</p>
+              <span class="step-badge">타 기관 검사 이력 없을 시 필수</span>
+            </li>
+            <li class="process-step">
+              <span class="step-icon"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11a8 8 0 0 1-8 8H8l-5 3 1-6a8 8 0 1 1 17-5Z"/><path d="M8 10h8m-8 4h5"/></svg></span>
+              <span class="step-number">04</span>
+              <h4>정기 상담</h4>
               <p>주 1회 상담을 진행하며, 매 회기 후 부모상담을 통해 아이의 변화를 함께 관찰합니다.</p>
-            </div>
-            <div class="process-step">
-              <div class="process-num">5</div>
-              <h3>종결</h3>
+              
+            </li>
+            <li class="process-step">
+              <span class="step-icon"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21v-9M12 14C5 14 3 10 3 5c6 0 9 3 9 9Zm0-3c0-6 3-8 9-8 0 6-3 9-9 9M7 21h10"/></svg></span>
+              <span class="step-number">05</span>
+              <h4>종결</h4>
               <p>아동의 어려움이 완화되고 양육 효능감이 높아지면, 충분히 이별을 준비하며 자연스럽게 종결합니다.</p>
-            </div>
+              
+            </li>
+          </ol>
+          <p class="process-note"><strong>초기 검사 안내</strong> · 타 기관에서 심리검사를 받은 이력이 없는 경우 초기 심리 검사를 필수로 진행합니다. 기존 검사 결과가 있다면 접수 상담 시 결과지를 준비해 주세요.</p>
+        </article>
+        <article class="process-track process-track--assessment fade-in" aria-labelledby="assessment-process-title">
+          <div class="process-track-header">
+            <span class="track-label" aria-hidden="true">검사</span>
+            <div><h3 class="process-track-title" id="assessment-process-title">심리검사</h3>
+            <p class="process-track-sub">아이와 나 기질 검사 · 양육태도 검사</p></div>
           </div>
-        </div>
-        <div class="process-track fade-in">
-          <h3 class="process-track-title">B. 심리검사 진행</h3>
-          <p class="process-track-sub">대상 프로그램: 아이와 나 기질 검사 / 양육태도 검사</p>
-          <div class="process-steps">
-            <div class="process-step">
-              <div class="process-num">1</div>
-              <h3>네이버 예약</h3>
-              <p>원하시는 심리검사 프로그램을 네이버 예약으로 신청해 주세요.</p>
-            </div>
-            <div class="process-step">
-              <div class="process-num">2</div>
-              <h3>입금 확인 및 온라인 검사지 발송</h3>
-              <p>입금 확인 후 심리검사지를 온라인으로 보내드립니다.</p>
-            </div>
-            <div class="process-step">
-              <div class="process-num">3</div>
-              <h3>온라인 검사 완료</h3>
-              <p>충분한 결과 확인과 상담 준비를 위해, 대면 해석상담일 3일 전까지 온라인 검사를 완료해 주세요.</p>
-              <span class="process-deadline">대면 해석상담 3일 전까지 온라인 검사를 완료해 주세요.</span>
-            </div>
-            <div class="process-step">
-              <div class="process-num">4</div>
-              <h3>대면 해석상담 및 보고서 제공</h3>
-              <p>대면 상담에서 검사 결과를 함께 살펴보고, 아이와 양육자를 이해하는 데 도움이 되는 방향을 나눕니다. 해석 보고서도 함께 제공합니다.</p>
-            </div>
-          </div>
-        </div>
+          <ol class="process-steps process-steps--four" role="list">
+            <li class="process-step">
+              <span class="step-icon"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 10h18m-13 5h2m4 0h2"/></svg></span>
+              <span class="step-number">01</span>
+              <h4>네이버 예약</h4>
+              <p>원하시는 심리검사 프로그램을 선택해 신청해 주세요.</p>
+              
+            </li>
+            <li class="process-step">
+              <span class="step-icon"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg></span>
+              <span class="step-number">02</span>
+              <h4>입금 · 검사지 수령</h4>
+              <p>입금 확인 후 온라인으로 심리검사지를 보내드립니다.</p>
+              
+            </li>
+            <li class="process-step">
+              <span class="step-icon"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="m8 12 3 3 5-6"/></svg></span>
+              <span class="step-number">03</span>
+              <h4>온라인 검사 완료</h4>
+              <p>대면 해석상담일 3일 전까지 온라인 검사를 완료해 주세요.</p>
+              <span class="step-badge">상담 3일 전까지</span>
+            </li>
+            <li class="process-step">
+              <span class="step-icon"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8m-8 4h5"/></svg></span>
+              <span class="step-number">04</span>
+              <h4>해석상담 · 보고서</h4>
+              <p>대면 상담에서 검사 결과와 양육 방향을 함께 나누며, 해석 보고서도 제공합니다.</p>
+              
+            </li>
+          </ol>
+        </article>
       </div>
     </div>
   </section>
@@ -2145,39 +2051,33 @@
       <div class="fade-in">
         <span class="section-label">Fees</span>
         <h2 class="section-title">비용 안내</h2>
-        <div class="pricing-box">
-          <div class="pricing-list">
-            <div class="pricing-item">
-              <span>접수 상담</span>
-              <span>70,000원 / 50분 · 보호자만 참여</span>
-            </div>
-            <div class="pricing-item">
-              <span>놀이치료 / 청소년 상담</span>
-              <span>70,000원 / 회기당 55분</span>
-            </div>
-            <div class="pricing-item">
-              <span>아이와 나 기질 검사</span>
-              <span>70,000원 / 해석상담 및 해석 보고서 포함</span>
-            </div>
-            <div class="pricing-item">
-              <span>양육태도 검사</span>
-              <span>150,000원 / 해석상담 및 해석 보고서 포함</span>
-            </div>
-            <div class="pricing-item pricing-item--stacked">
-              <div>
-                <span>초기 심리 검사</span>
-                <span>70,000원</span>
-              </div>
-              <p class="pricing-item-note">놀이치료 / 청소년 상담 시작 과정에서 진행하는 검사입니다. 타 기관에서 심리검사를 받은 이력이 없는 경우 필수로 진행합니다.</p>
-            </div>
-          </div>
-          <div class="pricing-policy">
-            <strong>취소 및 예약 안내</strong>
-            모든 프로그램은 사전예약제로 운영됩니다. 첫 회기 접수 상담은 노쇼 방지를 위해 비용을 미리 입금받고 있으며,
-            이후 상담은 현장 결제가 가능합니다. 심리검사 프로그램(아이와 나 기질 검사, 양육태도 검사)은 입금 확인 후 온라인 검사지를 발송해 드립니다.
-            검사 프로그램은 약속 시간 24시간 전까지 일정 변경이 가능하며,
-            24시간 이내 취소 시 비용의 50%가 부과될 수 있습니다.
-          </div>
+        <p class="fees-intro">상담 시간과 검사에 포함된 내용을 한눈에 확인해 주세요.</p>
+        <div class="fee-groups">
+          <article class="fee-group" aria-labelledby="counseling-fees-title">
+            <div class="fee-group-header"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11a8 8 0 0 1-8 8H8l-5 3 1-6a8 8 0 1 1 17-5Z"/><path d="M8 10h8m-8 4h5"/></svg><div><h3 id="counseling-fees-title">상담</h3><p>1회 기준 · 프로그램별 시간 안내</p></div></div>
+            <dl>
+              <div class="fee-row"><dt>접수 상담<span class="fee-detail">50분 · 보호자만 참여</span></dt><dd>70,000<small>원</small></dd></div>
+              <div class="fee-row"><dt>놀이치료 / 청소년 상담<span class="fee-detail">55분 · 아동·청소년 40분 + 부모상담 15분</span></dt><dd>70,000<small>원</small></dd></div>
+              <div class="fee-row"><dt>양육상담<span class="fee-detail">50분 · 보호자 상담</span></dt><dd>70,000<small>원</small></dd></div>
+            </dl>
+          </article>
+          <article class="fee-group" aria-labelledby="assessment-fees-title">
+            <div class="fee-group-header"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5H6a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3"/><rect x="9" y="2" width="6" height="5" rx="1.5"/><path d="M8 12h8m-8 4h6"/></svg><div><h3 id="assessment-fees-title">심리검사</h3><p>프로그램별 비용 · 포함 내용 안내</p></div></div>
+            <dl>
+              <div class="fee-row"><dt>아이와 나 기질 검사<span class="fee-detail">해석상담 + 해석 보고서 포함</span></dt><dd>70,000<small>원</small></dd></div>
+              <div class="fee-row"><dt>양육태도 검사<span class="fee-detail">해석상담 + 해석 보고서 포함</span></dt><dd>150,000<small>원</small></dd></div>
+              <div class="fee-row"><dt>초기 심리 검사<span class="fee-detail">놀이치료 / 청소년 상담 시작 과정에서 진행</span></dt><dd>70,000<small>원</small></dd></div>
+            </dl>
+          </article>
+        </div>
+        <p class="fee-note"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7"/><path d="m15 15 6 6M7 10l2 2 4-4"/></svg><span><strong>초기 심리 검사는 언제 받나요?</strong><br>타 기관에서 심리검사를 받은 이력이 없는 경우 필수로 진행합니다. 기존 검사 결과가 있다면 접수 상담 시 준비해 주세요.</span></p>
+        <div class="pricing-policy">
+          <h3>예약 및 결제 · 취소 안내</h3>
+          <ul>
+            <li>모든 프로그램은 사전예약제로 운영됩니다. 첫 회기 접수 상담은 노쇼 방지를 위해 미리 입금받으며, 이후 상담은 현장 결제가 가능합니다.</li>
+            <li>아이와 나 기질 검사와 양육태도 검사는 입금 확인 후 온라인 검사지를 발송해 드립니다.</li>
+            <li>검사 프로그램은 약속 시간 24시간 전까지 일정 변경이 가능하며, 24시간 이내 취소 시 비용의 50%가 부과될 수 있습니다.</li>
+          </ul>
         </div>
       </div>
     </div>

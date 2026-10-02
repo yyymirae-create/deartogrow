@@ -469,31 +469,6 @@
       object-fit: cover;
     }
 
-    .about-image-badge {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      background: rgba(254, 254, 253, 0.95);
-      padding: 16px 20px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border-soft);
-    }
-
-    .about-image-badge strong {
-      display: block;
-      font-family: 'KoPub Batang Pro', serif;
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .about-image-badge span {
-      font-size: 0.78rem;
-      color: var(--gray-text);
-      line-height: 1.5;
-    }
-
     .about-content p {
       margin-bottom: 16px;
       color: var(--gray-text);
@@ -1085,7 +1060,7 @@
     .step-number { display: block; font-size: .7rem; letter-spacing: .08em; color: var(--sage-dark); margin-bottom: 5px; font-weight: 600; }
     .process-step h4 { font-size: .98rem; margin-bottom: 10px; }
     .process-step p { font-size: .82rem; line-height: 1.8; word-break: keep-all; overflow-wrap: break-word; }
-    .step-badge { display: inline-block; margin-top: 12px; padding: 4px 9px; border-radius: 7px; background: var(--warm-ivory); color: var(--primary-green-dark); font-size: .73rem; font-weight: 600; }
+
     .step-required { display: block; margin-top: 12px; font-size: .73rem; font-weight: 700; }
     .process-note { margin-top: 26px; padding: 15px 18px; background: var(--primary-green-soft); border-radius: var(--radius); font-size: .8rem; line-height: 1.8; }
     .process-note strong { color: var(--primary-green-dark); }
@@ -1097,7 +1072,7 @@
       .process-step:not(:last-child)::after { content: ''; top: 55px; bottom: 5px; left: 24px; right: auto; border-left: 1px dashed var(--sage-dark); }
       .process-step:last-child { padding-bottom: 0; }
       .process-step h4 { margin-bottom: 5px; }
-      .step-badge { justify-self: start; }
+
     }
     @media (max-width: 760px) {
       .fee-groups { grid-template-columns: 1fr; gap: 16px; }
@@ -1523,15 +1498,11 @@
       <div class="about-intro fade-in">
         <span class="section-label">About</span>
         <h2 class="section-title">함께 이해하고,<br />함께 자라는 마음의 공간</h2>
-        <p class="section-desc">아이와 양육자가 편안하게 들어올 수 있는 따뜻한 상담 공간입니다.</p>
+        <p class="section-desc">아이와 양육자가 서로를 이해하며 함께 자라가는 공간입니다.</p>
       </div>
       <div class="about-grid">
         <div class="about-feature fade-in">
           <img src="images/about-01-sign.jpg" alt="같이크는마음 아동청소년상담소 안내" loading="lazy" />
-          <div class="about-image-badge">
-            <strong>이해하고, 함께 자라는 곳</strong>
-            <span>아이와 양육자가 서로를 이해하며 함께 자라가는 공간입니다.</span>
-          </div>
         </div>
         <div class="about-content fade-in">
           <p>
@@ -1705,7 +1676,7 @@
           <article class="program-card fade-in">
             <div class="program-card-head">
               <div class="program-icon">🌈</div>
-              <h3><span class="text-unit">아이와 나</span> <span class="text-unit">기질 검사</span></h3>
+              <h3><span class="text-unit">아이와 나</span> <span class="text-unit">기질검사</span></h3>
             </div>
             <p class="program-desc">아이와 양육자의 타고난 기질과 현재 형성된 성격 특성을 함께 살펴보는 검사입니다. 아이가 예민한 편인지, 낯선 상황에 조심스러운지, 자극을 많이 추구하는지, 끈기가 어느 정도인지 등을 이해하고, 양육자와 아이의 기질 차이가 관계 안에서 어떻게 부딪히거나 조화를 이루는지 살펴봅니다.</p>
             <div class="program-field">
@@ -1736,7 +1707,7 @@
           <article class="program-card fade-in">
             <div class="program-card-head">
               <div class="program-icon">💚</div>
-              <h3>양육태도 검사</h3>
+              <h3>양육태도검사</h3>
             </div>
             <p class="program-desc">아이의 기질과 감각 민감성, 양육자의 기질, 양육태도, 양육스트레스를 종합적으로 살펴보는 검사입니다. 아이의 문제 행동만 보는 것이 아니라, 아이의 특성과 양육자의 반응 방식, 현재 양육환경이 어떻게 맞물려 있는지 이해하고 구체적인 양육 방향을 찾습니다.</p>
             <div class="program-field">
@@ -1941,7 +1912,7 @@
           <div class="process-track-header">
             <span class="track-label" aria-hidden="true">검사</span>
             <div><h3 class="process-track-title" id="assessment-process-title">심리검사</h3>
-            <p class="process-track-sub">아이와 나 기질 검사 · 양육태도 검사</p></div>
+            <p class="process-track-sub">아이와 나 기질검사 · 양육태도검사</p></div>
           </div>
           <ol class="process-steps process-steps--four" role="list">
             <li class="process-step">
@@ -1963,7 +1934,7 @@
               <span class="step-number">03</span>
               <h4>온라인 검사 완료</h4>
               <p>대면 해석상담일 3일 전까지 온라인 검사를 완료해 주세요.</p>
-              <span class="step-badge">상담 3일 전까지</span>
+              <strong class="step-required">*상담 3일 전까지</strong>
             </li>
             <li class="process-step">
               <span class="step-icon"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8m-8 4h5"/></svg></span>
@@ -1996,8 +1967,8 @@
           <article class="fee-group" aria-labelledby="assessment-fees-title">
             <div class="fee-group-header"><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5H6a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3"/><rect x="9" y="2" width="6" height="5" rx="1.5"/><path d="M8 12h8m-8 4h6"/></svg><div><h3 id="assessment-fees-title">심리검사</h3><p>프로그램별 비용 · 포함 내용 안내</p></div></div>
             <dl>
-              <div class="fee-row"><dt><span class="text-unit">아이와 나</span> <span class="text-unit">기질 검사</span><span class="fee-detail"><span class="text-unit">해석상담 1시간</span> <span class="text-unit">+ 해석 보고서 포함</span></span></dt><dd>70,000<small>원</small></dd></div>
-              <div class="fee-row"><dt>양육태도 검사<span class="fee-detail"><span class="text-unit">해석상담 1시간 30분</span> <span class="text-unit">+ 해석 보고서 포함</span></span></dt><dd>150,000<small>원</small></dd></div>
+              <div class="fee-row"><dt><span class="text-unit">아이와 나</span> <span class="text-unit">기질검사</span><span class="fee-detail"><span class="text-unit">해석상담 1시간</span> <span class="text-unit">+ 해석 보고서 포함</span></span></dt><dd>70,000<small>원</small></dd></div>
+              <div class="fee-row"><dt>양육태도검사<span class="fee-detail"><span class="text-unit">해석상담 1시간 30분</span> <span class="text-unit">+ 해석 보고서 포함</span></span></dt><dd>150,000<small>원</small></dd></div>
               <div class="fee-row"><dt>초기 심리 검사<span class="fee-detail">놀이치료 / 청소년 상담 시작 과정에서 진행</span></dt><dd>70,000<small>원</small></dd></div>
             </dl>
           </article>
@@ -2006,7 +1977,7 @@
           <h3>예약 및 결제 · 취소 안내</h3>
           <ul>
             <li>모든 프로그램은 사전예약제로 운영됩니다. 첫 회기 접수 상담은 노쇼 방지를 위해 미리 입금받으며, 이후 상담은 현장 결제가 가능합니다.</li>
-            <li>아이와 나 기질 검사와 양육태도 검사는 입금 확인 후 온라인 검사지를 발송해 드립니다.</li>
+            <li>아이와 나 기질검사와 양육태도검사는 입금 확인 후 온라인 검사지를 발송해 드립니다.</li>
             <li>검사 프로그램은 약속 시간 24시간 전까지 일정 변경이 가능하며, 24시간 이내 취소 시 비용의 50%가 부과될 수 있습니다.</li>
           </ul>
         </div>

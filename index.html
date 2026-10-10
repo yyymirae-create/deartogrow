@@ -529,23 +529,24 @@
 
     .counselor-top {
       display: grid;
-      grid-template-columns: 200px 1fr;
+      grid-template-columns: minmax(220px, 38%) 1fr;
       gap: 0;
     }
 
     .counselor-photo {
-      background: linear-gradient(180deg, var(--primary-green-soft) 0%, var(--cream-card) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 220px;
-      padding: 24px;
+      position: relative;
+      min-height: 280px;
+      overflow: hidden;
+      background: var(--cream-card);
     }
 
-    .counselor-logo {
-      width: min(160px, 80%);
-      height: auto;
-      object-fit: contain;
+    .counselor-portrait {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 60% 40%;
     }
 
     .counselor-section .section-header-center .section-desc {
@@ -1346,7 +1347,7 @@
         grid-template-columns: 1fr;
       }
 
-      .counselor-photo { min-height: 160px; }
+      .counselor-photo { min-height: 0; aspect-ratio: 4 / 3; }
 
       .footer-grid {
         grid-template-columns: 1fr;
@@ -1453,10 +1454,12 @@
       </a>
       <nav class="nav" id="nav">
         <a href="#about">소개</a>
-        <a href="#counselor">상담자</a>
+        <a href="#signs">상담 대상</a>
         <a href="#programs">프로그램</a>
         <a href="#process">절차</a>
         <a href="#pricing">비용</a>
+        <a href="#counselor">상담자</a>
+        <a href="#space-gallery">공간</a>
         <a href="#contact" class="nav-cta">문의</a>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">
@@ -1541,65 +1544,51 @@
     </div>
   </section>
 
-  <section class="counselor-section" id="counselor">
+  <section class="signs" id="signs">
     <div class="container">
       <div class="section-header-center fade-in">
-        <span class="section-label">Counselor</span>
-        <h2 class="section-title">상담자를 소개합니다</h2>
+        <span class="section-label">When to Seek Help</span>
+        <h2 class="section-title">이런 모습이 지속된다면<br />상담을 고려해보세요</h2>
+        <p class="section-desc desktop-wide-desc">
+          모든 아이에게 나타날 수 있는 모습이지만,<br />
+          <span class="desktop-single-line">오래 지속되거나 일상생활에 영향을 준다면 전문가와 함께 살펴보는 것이 도움이 될 수 있습니다.</span>
+        </p>
       </div>
-      <article class="counselor-single fade-in">
-        <div class="counselor-top">
-          <div class="counselor-photo">
-            <img src="images/logo_color.png" alt="같이크는마음" class="counselor-logo" width="160" height="160" />
-          </div>
-          <div class="counselor-head">
-            <h3>유미래</h3>
-            <p class="counselor-role">같이크는마음 소장 · 놀이심리상담사</p>
-            <div class="counselor-tags">
-              <span>놀이치료</span>
-              <span>아동·청소년 상담</span>
-              <span>부모상담</span>
-              <span>양육코칭</span>
-              <span>심리검사</span>
-            </div>
-          </div>
+      <div class="signs-grid">
+        <div class="signs-card fade-in">
+          <h3>1. 정서적 어려움</h3>
+          <ul>
+            <li>자신감이 없고 위축되어 있는 경우</li>
+            <li>우울하거나 불안해 보이는 경우</li>
+            <li>짜증이 많고 신경질적인 반응이 잦은 경우</li>
+            <li>부모와 떨어지기를 유난히 힘들어하는 경우</li>
+          </ul>
         </div>
-        <div class="counselor-body">
-          <p class="counselor-intro-text">
-            직장어린이집 보육교사, 육아정책연구소 연구원, 아동심리치료 전공 석사 과정을 거치며 아이의 발달과 양육환경을 통합적으로 이해해왔습니다. 현재는 상담현장에서 아동과 청소년, 양육자가 서로를 이해하고 건강하게 성장할 수 있도록 돕고 있습니다.
-          </p>
-          <div class="counselor-details">
-            <div class="detail-block">
-              <h4>자격</h4>
-              <ul>
-                <li>놀이심리상담사</li>
-                <li>임상심리사</li>
-                <li>청소년상담사</li>
-                <li>발달재활서비스 제공인력</li>
-                <li>보육교사</li>
-              </ul>
-            </div>
-            <div class="detail-block">
-              <h4>학력</h4>
-              <ul>
-                <li>경희대학교 아동가족학과</li>
-                <li>숙명여자대학교 일반대학원 아동복지학과 아동심리치료전공 석사 졸업</li>
-              </ul>
-            </div>
-            <div class="detail-block">
-              <h4>주요 경력</h4>
-              <ul>
-                <li>같이크는마음 소장</li>
-                <li>서울가정법원 광역면접교섭센터 면접교섭상담위원</li>
-                <li>상계종합사회복지관 전문상담센터 놀이심리상담사</li>
-                <li>육아정책연구소 연구원</li>
-                <li>강북구육아종합지원센터 보육전문요원</li>
-                <li>삼성GEC 직장어린이집 보육교직원</li>
-              </ul>
-            </div>
-          </div>
+        <div class="signs-card fade-in">
+          <h3>2. 행동적 어려움</h3>
+          <ul>
+            <li>공격적이거나 반항적인 행동이 반복되는 경우</li>
+            <li>주의가 산만하고 집중이 어려운 경우</li>
+            <li>충동적이거나 과잉행동이 두드러지는 경우</li>
+          </ul>
         </div>
-      </article>
+        <div class="signs-card fade-in">
+          <h3>3. 관계의 어려움</h3>
+          <ul>
+            <li>친구들과 잘 어울리지 못하는 경우</li>
+            <li>유치원이나 학교 적응이 어려운 경우</li>
+            <li>친구를 때리거나 괴롭히는 행동이 반복되는 경우</li>
+          </ul>
+        </div>
+        <div class="signs-card fade-in">
+          <h3>4. 발달 및 기타 어려움</h3>
+          <ul>
+            <li>전반적인 발달이 늦고 정서적 어려움이 함께 보이는 경우</li>
+            <li>의사소통이나 상호작용 발달이 지연된 경우</li>
+            <li>틱, 악몽, 야뇨, 형제 갈등 등으로 어려움이 있는 경우</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1740,121 +1729,6 @@
     </div>
   </section>
 
-  <section class="space-gallery" id="space-gallery">
-    <div class="container">
-      <div class="section-header-center fade-in">
-        <span class="section-label">Space</span>
-        <h2 class="section-title">상담소 공간을 둘러보세요</h2>
-        <p class="section-desc"><span class="copy-line">따뜻하고 편안한 상담 공간을 사진으로 만나보세요.</span> <span class="copy-line">썸네일을 누르면 크게 볼 수 있습니다.</span></p>
-      </div>
-      <div class="space-gallery-grid" id="spaceGalleryGrid">
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="0" aria-label="같이크는마음 아동청소년상담소 안내 크게 보기">
-          <img src="images/about-01-sign.jpg" alt="같이크는마음 아동청소년상담소 안내" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="1" aria-label="1:1 상담실 크게 보기">
-          <img src="images/about-02-consult.jpg" alt="1:1 상담실" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="2" aria-label="가족 상담 공간 크게 보기">
-          <img src="images/about-03-family-room.jpg" alt="가족 상담 공간" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="3" aria-label="놀이치료실 전경 크게 보기">
-          <img src="images/about-04-playroom.jpg" alt="놀이치료실 전경" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="4" aria-label="놀이 공간 크게 보기">
-          <img src="images/about-05-play-area.jpg" alt="놀이 공간" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="5" aria-label="놀이치료 도구 크게 보기">
-          <img src="images/about-06-toys.jpg" alt="놀이치료 도구" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="6" aria-label="심리·놀이치료 도서 크게 보기">
-          <img src="images/about-07-books.jpg" alt="심리·놀이치료 도서" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="7" aria-label="따뜻한 상담실 분위기 크게 보기">
-          <img src="images/about-08-decor.jpg" alt="따뜻한 상담실 분위기" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="8" aria-label="놀이를 통한 마음 표현 크게 보기">
-          <img src="images/about-09-child-play.jpg" alt="놀이를 통한 마음 표현" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="9" aria-label="아이 눈높이의 놀이 공간 크게 보기">
-          <img src="images/about-10-child-shelf.jpg" alt="아이 눈높이의 놀이 공간" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="10" aria-label="책과 자료가 있는 공간 크게 보기">
-          <img src="images/about-11-bookshelf.jpg" alt="책과 자료가 있는 공간" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="11" aria-label="놀이치료 장면 크게 보기">
-          <img src="images/about-12-child-play.jpg" alt="놀이치료 장면" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="12" aria-label="아이의 집중된 놀이 크게 보기">
-          <img src="images/about-13-child-activity.jpg" alt="아이의 집중된 놀이" loading="lazy" />
-        </button>
-        <button type="button" class="space-gallery-card fade-in" data-gallery-index="13" aria-label="상담 철학 메시지 크게 보기">
-          <img src="images/about-14-message.jpg" alt="상담 철학 메시지" loading="lazy" />
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="상담소 사진 크게 보기">
-    <div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true"></div>
-    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="닫기">×</button>
-    <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="이전 사진">‹</button>
-    <button type="button" class="lightbox-next" id="lightboxNext" aria-label="다음 사진">›</button>
-    <div class="lightbox-stage">
-      <img class="lightbox-image" id="lightboxImage" src="" alt="" />
-      <div class="lightbox-meta">
-        <p class="lightbox-counter" id="lightboxCounter">1 / 14</p>
-      </div>
-    </div>
-  </div>
-
-  <section class="signs" id="signs">
-    <div class="container">
-      <div class="section-header-center fade-in">
-        <span class="section-label">When to Seek Help</span>
-        <h2 class="section-title">이런 모습이 지속된다면<br />상담을 고려해보세요</h2>
-        <p class="section-desc desktop-wide-desc">
-          모든 아이에게 나타날 수 있는 모습이지만,<br />
-          <span class="desktop-single-line">오래 지속되거나 일상생활에 영향을 준다면 전문가와 함께 살펴보는 것이 도움이 될 수 있습니다.</span>
-        </p>
-      </div>
-      <div class="signs-grid">
-        <div class="signs-card fade-in">
-          <h3>1. 정서적 어려움</h3>
-          <ul>
-            <li>자신감이 없고 위축되어 있는 경우</li>
-            <li>우울하거나 불안해 보이는 경우</li>
-            <li>짜증이 많고 신경질적인 반응이 잦은 경우</li>
-            <li>부모와 떨어지기를 유난히 힘들어하는 경우</li>
-          </ul>
-        </div>
-        <div class="signs-card fade-in">
-          <h3>2. 행동적 어려움</h3>
-          <ul>
-            <li>공격적이거나 반항적인 행동이 반복되는 경우</li>
-            <li>주의가 산만하고 집중이 어려운 경우</li>
-            <li>충동적이거나 과잉행동이 두드러지는 경우</li>
-          </ul>
-        </div>
-        <div class="signs-card fade-in">
-          <h3>3. 관계의 어려움</h3>
-          <ul>
-            <li>친구들과 잘 어울리지 못하는 경우</li>
-            <li>유치원이나 학교 적응이 어려운 경우</li>
-            <li>친구를 때리거나 괴롭히는 행동이 반복되는 경우</li>
-          </ul>
-        </div>
-        <div class="signs-card fade-in">
-          <h3>4. 발달 및 기타 어려움</h3>
-          <ul>
-            <li>전반적인 발달이 늦고 정서적 어려움이 함께 보이는 경우</li>
-            <li>의사소통이나 상호작용 발달이 지연된 경우</li>
-            <li>틱, 악몽, 야뇨, 형제 갈등 등으로 어려움이 있는 경우</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="process" id="process">
     <div class="container">
       <div class="section-header-center fade-in">
@@ -1985,6 +1859,135 @@
     </div>
   </section>
 
+  <section class="counselor-section" id="counselor">
+    <div class="container">
+      <div class="section-header-center fade-in">
+        <span class="section-label">Counselor</span>
+        <h2 class="section-title">상담자를 소개합니다</h2>
+      </div>
+      <article class="counselor-single fade-in">
+        <div class="counselor-top">
+          <div class="counselor-photo">
+            <img src="images/profile-web.jpg" alt="같이크는마음 유미래 상담자" class="counselor-portrait" width="1000" height="750" loading="lazy" />
+          </div>
+          <div class="counselor-head">
+            <h3>유미래</h3>
+            <p class="counselor-role">같이크는마음 소장 · 놀이심리상담사</p>
+            <div class="counselor-tags">
+              <span>놀이치료</span>
+              <span>아동·청소년 상담</span>
+              <span>부모상담</span>
+              <span>양육코칭</span>
+              <span>심리검사</span>
+            </div>
+          </div>
+        </div>
+        <div class="counselor-body">
+          <p class="counselor-intro-text">
+            직장어린이집 보육교사, 육아정책연구소 연구원, 아동심리치료 전공 석사 과정을 거치며 아이의 발달과 양육환경을 통합적으로 이해해왔습니다. 현재는 상담현장에서 아동과 청소년, 양육자가 서로를 이해하고 건강하게 성장할 수 있도록 돕고 있습니다.
+          </p>
+          <div class="counselor-details">
+            <div class="detail-block">
+              <h4>자격</h4>
+              <ul>
+                <li>놀이심리상담사</li>
+                <li>임상심리사</li>
+                <li>청소년상담사</li>
+                <li>발달재활서비스 제공인력</li>
+                <li>보육교사</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>학력</h4>
+              <ul>
+                <li>경희대학교 아동가족학과</li>
+                <li>숙명여자대학교 일반대학원 아동복지학과 아동심리치료전공 석사 졸업</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>주요 경력</h4>
+              <ul>
+                <li>같이크는마음 소장</li>
+                <li>서울가정법원 광역면접교섭센터 면접교섭상담위원</li>
+                <li>상계종합사회복지관 전문상담센터 놀이심리상담사</li>
+                <li>육아정책연구소 연구원</li>
+                <li>강북구육아종합지원센터 보육전문요원</li>
+                <li>삼성GEC 직장어린이집 보육교직원</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="space-gallery" id="space-gallery">
+    <div class="container">
+      <div class="section-header-center fade-in">
+        <span class="section-label">Space</span>
+        <h2 class="section-title">상담소 공간을 둘러보세요</h2>
+        <p class="section-desc"><span class="copy-line">따뜻하고 편안한 상담 공간을 사진으로 만나보세요.</span> <span class="copy-line">썸네일을 누르면 크게 볼 수 있습니다.</span></p>
+      </div>
+      <div class="space-gallery-grid" id="spaceGalleryGrid">
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="0" aria-label="같이크는마음 아동청소년상담소 안내 크게 보기">
+          <img src="images/about-01-sign.jpg" alt="같이크는마음 아동청소년상담소 안내" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="1" aria-label="1:1 상담실 크게 보기">
+          <img src="images/about-02-consult.jpg" alt="1:1 상담실" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="2" aria-label="가족 상담 공간 크게 보기">
+          <img src="images/about-03-family-room.jpg" alt="가족 상담 공간" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="3" aria-label="놀이치료실 전경 크게 보기">
+          <img src="images/about-04-playroom.jpg" alt="놀이치료실 전경" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="4" aria-label="놀이 공간 크게 보기">
+          <img src="images/about-05-play-area.jpg" alt="놀이 공간" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="5" aria-label="놀이치료 도구 크게 보기">
+          <img src="images/about-06-toys.jpg" alt="놀이치료 도구" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="6" aria-label="심리·놀이치료 도서 크게 보기">
+          <img src="images/about-07-books.jpg" alt="심리·놀이치료 도서" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="7" aria-label="따뜻한 상담실 분위기 크게 보기">
+          <img src="images/about-08-decor.jpg" alt="따뜻한 상담실 분위기" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="8" aria-label="놀이를 통한 마음 표현 크게 보기">
+          <img src="images/about-09-child-play.jpg" alt="놀이를 통한 마음 표현" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="9" aria-label="아이 눈높이의 놀이 공간 크게 보기">
+          <img src="images/about-10-child-shelf.jpg" alt="아이 눈높이의 놀이 공간" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="10" aria-label="책과 자료가 있는 공간 크게 보기">
+          <img src="images/about-11-bookshelf.jpg" alt="책과 자료가 있는 공간" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="11" aria-label="놀이치료 장면 크게 보기">
+          <img src="images/about-12-child-play.jpg" alt="놀이치료 장면" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="12" aria-label="아이의 집중된 놀이 크게 보기">
+          <img src="images/about-13-child-activity.jpg" alt="아이의 집중된 놀이" loading="lazy" />
+        </button>
+        <button type="button" class="space-gallery-card fade-in" data-gallery-index="13" aria-label="상담 철학 메시지 크게 보기">
+          <img src="images/about-14-message.jpg" alt="상담 철학 메시지" loading="lazy" />
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="상담소 사진 크게 보기">
+    <div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true"></div>
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="닫기">×</button>
+    <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="이전 사진">‹</button>
+    <button type="button" class="lightbox-next" id="lightboxNext" aria-label="다음 사진">›</button>
+    <div class="lightbox-stage">
+      <img class="lightbox-image" id="lightboxImage" src="" alt="" />
+      <div class="lightbox-meta">
+        <p class="lightbox-counter" id="lightboxCounter">1 / 14</p>
+      </div>
+    </div>
+  </div>
+
   <section class="contact" id="contact">
     <div class="container">
       <div class="contact-grid">
@@ -2060,10 +2063,12 @@
           <h4>바로가기</h4>
           <ul>
             <li><a href="#about">소개</a></li>
-            <li><a href="#counselor">상담자</a></li>
+            <li><a href="#signs">상담 대상</a></li>
             <li><a href="#programs">프로그램</a></li>
             <li><a href="#process">절차</a></li>
             <li><a href="#pricing">비용</a></li>
+            <li><a href="#counselor">상담자</a></li>
+            <li><a href="#space-gallery">공간</a></li>
             <li><a href="#contact">문의</a></li>
           </ul>
         </div>

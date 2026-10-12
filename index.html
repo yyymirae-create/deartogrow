@@ -1494,6 +1494,12 @@
       .process-step:not(:last-child)::after { content:'↓'; top:60px; bottom:auto; left:14px; right:auto; width:24px; height:24px; border:0; font-size:1.25rem; }
     }
     @media (prefers-reduced-motion:reduce) { .about-slide { transition:none; } }
+
+    .hero-showcase { width:100%; }
+    .hero-slide { position:absolute; inset:0; transform:translateX(100%); visibility:hidden; transition:transform .65s ease, visibility .65s; }
+    .hero-slide.is-active { transform:translateX(0); visibility:visible; z-index:2; }
+    .hero-slide.is-previous { transform:translateX(-100%); visibility:visible; z-index:1; }
+    @media (prefers-reduced-motion:reduce) { .hero-slide { transition:none; } }
   </style>
 </head>
 <body>
@@ -1535,14 +1541,11 @@
         </div>
       </div>
       <div class="hero-visual fade-in">
-        <div class="hero-showcase">
-          <img
-            src="images/about-02-consult.jpg"
-            alt="같이크는마음 상담실"
-            class="hero-showcase-photo"
-            width="420"
-            height="525"
-          />
+        <div class="hero-showcase" id="heroSlideshow" aria-label="같이크는마음 상담 공간">
+          <div class="hero-slide is-active" aria-hidden="false"><img src="images/about-02-consult.jpg" alt="같이크는마음 상담실" class="hero-showcase-photo" width="420" height="525" /></div>
+          <div class="hero-slide" aria-hidden="true"><img src="images/about-03-family-room.jpg" alt="가족 상담 공간" class="hero-showcase-photo" width="420" height="525" /></div>
+          <div class="hero-slide" aria-hidden="true"><img src="images/about-04-playroom.jpg" alt="놀이치료실 전경" class="hero-showcase-photo" width="420" height="525" /></div>
+          <div class="hero-slide" aria-hidden="true"><img src="images/about-05-play-area.jpg" alt="놀이 공간" class="hero-showcase-photo" width="420" height="525" /></div>
         </div>
       </div>
     </div>
@@ -1597,7 +1600,7 @@
     <div class="container">
       <div class="section-header-center fade-in">
         <span class="section-label">When to Seek Help</span>
-        <h2 class="section-title">이런 모습이 지속된다면<br />상담을 고려해보세요</h2>
+        <h2 class="section-title">아이에게 이런 모습이 지속된다면<br />상담을 고려해보세요</h2>
         <p class="section-desc desktop-wide-desc">
           모든 아이에게 나타날 수 있는 모습이지만,<br />
           <span class="desktop-single-line">오래 지속되거나 일상생활에 영향을 준다면 전문가와 함께 살펴보는 것이 도움이 될 수 있습니다.</span>
@@ -1638,14 +1641,14 @@
         </div>
       </div>
       <aside class="parent-concerns fade-in" aria-labelledby="parent-concerns-title">
-        <h3 id="parent-concerns-title">양육자의 이런 고민도 함께 나눕니다</h3>
+        <h3 id="parent-concerns-title">부모님도 이런 고민이 있으신가요?</h3>
         <ul>
           <li>아이의 행동을 어떻게 이해해야 할지 막막할 때</li>
           <li>달래고 혼내는 일이 반복되어 지칠 때</li>
           <li>부부의 양육 방식이 달라 어려울 때</li>
           <li>상담이 필요한 상황인지 판단하기 어려울 때</li>
         </ul>
-        <p>아이를 이해하는 일만큼, 양육자의 어려움을 살피는 일도 중요하게 생각합니다.</p>
+        <p>부모와 자녀 사이의 갈등이 반복되면 아이의 정서와 행동에도 어려움이 나타날 수 있습니다. 상담을 통해 서로의 마음을 이해하고, 관계를 다시 단단히 다져갈 수 있도록 돕습니다.</p>
       </aside>
     </div>
   </section>
@@ -2346,6 +2349,26 @@
     document.addEventListener('visibilitychange', scheduleAboutSlide);
     aboutMotion.addEventListener('change', () => { aboutPaused = aboutMotion.matches; scheduleAboutSlide(); });
     scheduleAboutSlide();
+
+    const heroSlides = [...document.querySelectorAll('.hero-slide')];
+    let heroIndex = 0;
+    let heroTimer;
+    function scheduleHeroSlide() {
+      window.clearInterval(heroTimer);
+      if (document.hidden || aboutMotion.matches) return;
+      heroTimer = window.setInterval(() => {
+        const previous = heroIndex;
+        heroIndex = (heroIndex + 1) % heroSlides.length;
+        heroSlides.forEach((slide, index) => {
+          slide.classList.toggle('is-active', index === heroIndex);
+          slide.classList.toggle('is-previous', index === previous);
+          slide.setAttribute('aria-hidden', String(index !== heroIndex));
+        });
+      }, 2500);
+    }
+    document.addEventListener('visibilitychange', scheduleHeroSlide);
+    aboutMotion.addEventListener('change', scheduleHeroSlide);
+    scheduleHeroSlide();
   </script>
 </body>
 </html>

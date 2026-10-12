@@ -1472,6 +1472,28 @@
       .parent-concerns ul { grid-template-columns:1fr; }
       .faq-item summary { font-size:.95rem; }
     }
+
+    .about-slide { position:absolute; inset:0; transform:translateX(100%); visibility:hidden; transition:transform .65s ease, visibility .65s; }
+    .about-slide.is-active { transform:translateX(0); visibility:visible; z-index:2; }
+    .about-slide.is-previous { transform:translateX(-100%); visibility:visible; z-index:1; }
+    .about-slide-controls { position:absolute; bottom:16px; right:16px; z-index:3; display:flex; align-items:center; gap:4px; border-radius:24px; padding:3px 6px; background:rgba(31,44,50,.82); color:white; font-size:.8rem; }
+    .about-slide-controls button { min-width:36px; min-height:38px; border:0; background:transparent; color:inherit; cursor:pointer; font:inherit; }
+    #aboutSlidePrev, #aboutSlideNext { font-size:1.6rem; }
+    #aboutSlidePause { padding:0 10px; border-left:1px solid #ffffff55; margin-left:4px; }
+    .about-slide-controls button:focus-visible { outline:2px solid white; outline-offset:-2px; border-radius:12px; }
+    .step-icon { width:60px; height:60px; margin:0 auto 18px; border-radius:18px; }
+    .step-icon .line-icon { width:30px; height:30px; }
+    .step-number, .process-step h4 { text-align:center; }
+    .process-step:not(:last-child)::after { content:'→'; width:24px; height:32px; display:grid; place-items:center; top:14px; right:-24px; font-size:1.5rem; line-height:1; }
+    @media (max-width:1000px) {
+      .process-step { grid-template-columns:52px minmax(0,1fr); column-gap:16px; padding-bottom:34px; }
+      .step-icon { width:52px; height:52px; margin:0; border-radius:16px; }
+      .step-icon .line-icon { width:26px; height:26px; }
+      .step-number, .process-step h4 { text-align:left; }
+      .process-step > :not(.step-icon) { grid-column:2; }
+      .process-step:not(:last-child)::after { content:'↓'; top:60px; bottom:auto; left:14px; right:auto; width:24px; height:24px; border:0; font-size:1.25rem; }
+    }
+    @media (prefers-reduced-motion:reduce) { .about-slide { transition:none; } }
   </style>
 </head>
 <body>
@@ -1534,11 +1556,20 @@
         <p class="section-desc">아이 안의 힘을 키우고, 성장을 어렵게 하는 관계와 환경을 함께 살핍니다.<br />아이를 돌보는 양육자의 어려움도 함께 나눕니다.</p>
       </div>
       <div class="about-grid">
-        <div class="about-feature fade-in">
-          <img src="images/about-01-sign.jpg" alt="같이크는마음 아동청소년상담소 안내" loading="lazy" />
+        <div class="about-feature fade-in" id="aboutSlideshow" role="region" aria-label="상담소 공간 사진 슬라이드">
+          <div class="about-slide is-active"><img src="images/about-01-sign.jpg" alt="같이크는마음 아동청소년상담소 안내" loading="lazy" /></div>
+          <div class="about-slide" aria-hidden="true"><img src="images/about-02-consult.jpg" alt="1:1 상담실" loading="lazy" /></div>
+          <div class="about-slide" aria-hidden="true"><img src="images/about-03-family-room.jpg" alt="가족 상담 공간" loading="lazy" /></div>
+          <div class="about-slide" aria-hidden="true"><img src="images/about-04-playroom.jpg" alt="놀이치료실 전경" loading="lazy" /></div>
+          <div class="about-slide-controls">
+            <button type="button" id="aboutSlidePrev" aria-label="이전 공간 사진">‹</button>
+            <span id="aboutSlideCount" aria-live="off">1 / 4</span>
+            <button type="button" id="aboutSlideNext" aria-label="다음 공간 사진">›</button>
+            <button type="button" id="aboutSlidePause">일시정지</button>
+          </div>
         </div>
         <div class="about-content fade-in">
-          <p>아이의 마음과 발달, 관계와 양육환경을 함께 이해합니다. 놀이 속에 담긴 마음을 세심하게 살피며, 아이의 속도에 맞춰 함께합니다.</p>
+          <p>아이의 마음과 발달, 관계와 양육환경을 함께 이해합니다.<br />놀이 속에 담긴 마음을 세심하게 살피며, 아이의 속도에 맞춰 함께합니다.</p>
           <p>양육자도 혼자 애쓰지 않도록, 일상에서 겪는 어려움을 나누고 우리 가족에게 맞는 방법을 찾아갑니다.</p>
           <div class="about-values">
             <div class="value-card">
@@ -1576,8 +1607,7 @@
         <div class="signs-card fade-in">
           <h3>1. 정서적 어려움</h3>
           <ul>
-            <li>자신감이 없고 위축되어 있는 경우</li>
-            <li>우울하거나 불안해 보이는 경우</li>
+            <li>자신감이 없고 위축되거나, 우울·불안한 모습이 보이는 경우</li>
             <li>짜증이 많고 신경질적인 반응이 잦은 경우</li>
             <li>부모와 떨어지기를 유난히 힘들어하는 경우</li>
           </ul>
@@ -1951,12 +1981,12 @@
             <div class="detail-block">
               <h4>주요 경력</h4>
               <ul>
-                <li>같이크는마음 소장</li>
-                <li>서울가정법원 광역면접교섭센터 면접교섭상담위원</li>
-                <li>상계종합사회복지관 전문상담센터 놀이심리상담사</li>
-                <li>육아정책연구소 연구원</li>
-                <li>강북구육아종합지원센터 보육전문요원</li>
-                <li>삼성GEC 직장어린이집 보육교직원</li>
+                <li>현) 같이크는마음 소장</li>
+                <li>현) 서울가정법원 광역면접교섭센터 면접교섭상담위원</li>
+                <li>현) 상계종합사회복지관 전문상담센터 놀이심리상담사</li>
+                <li>전) 육아정책연구소 연구원</li>
+                <li>전) 강북구육아종합지원센터 보육전문요원</li>
+                <li>전) 삼성GEC 직장어린이집 보육교직원</li>
               </ul>
             </div>
           </div>
@@ -2279,6 +2309,43 @@
       touchEndX = e.changedTouches[0].screenX;
       handleSwipe();
     }, { passive: true });
+
+    // Space preview: pause for focus, hover, hidden tabs, and reduced motion.
+    const aboutSlideshow = document.getElementById('aboutSlideshow');
+    const aboutSlides = [...aboutSlideshow.querySelectorAll('.about-slide')];
+    const aboutPause = document.getElementById('aboutSlidePause');
+    const aboutMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let aboutIndex = 0;
+    let aboutPaused = aboutMotion.matches;
+    let aboutTimer;
+    let aboutHovered = false;
+    function showAboutSlide(next) {
+      const previous = aboutIndex;
+      aboutIndex = (next + aboutSlides.length) % aboutSlides.length;
+      aboutSlides.forEach((slide, index) => {
+        slide.classList.toggle('is-active', index === aboutIndex);
+        slide.classList.toggle('is-previous', index === previous && index !== aboutIndex);
+        slide.setAttribute('aria-hidden', String(index !== aboutIndex));
+      });
+      document.getElementById('aboutSlideCount').textContent = `${aboutIndex + 1} / ${aboutSlides.length}`;
+    }
+    function scheduleAboutSlide() {
+      window.clearInterval(aboutTimer);
+      aboutPause.textContent = aboutPaused ? '자동재생' : '일시정지';
+      if (!aboutPaused && !aboutHovered && !document.hidden && !aboutSlideshow.contains(document.activeElement)) {
+        aboutTimer = window.setInterval(() => showAboutSlide(aboutIndex + 1), 5000);
+      }
+    }
+    document.getElementById('aboutSlidePrev').addEventListener('click', () => showAboutSlide(aboutIndex - 1));
+    document.getElementById('aboutSlideNext').addEventListener('click', () => showAboutSlide(aboutIndex + 1));
+    aboutPause.addEventListener('click', () => { aboutPaused = !aboutPaused; scheduleAboutSlide(); });
+    aboutSlideshow.addEventListener('mouseenter', () => { aboutHovered = true; scheduleAboutSlide(); });
+    aboutSlideshow.addEventListener('mouseleave', () => { aboutHovered = false; scheduleAboutSlide(); });
+    aboutSlideshow.addEventListener('focusin', scheduleAboutSlide);
+    aboutSlideshow.addEventListener('focusout', () => window.setTimeout(scheduleAboutSlide, 0));
+    document.addEventListener('visibilitychange', scheduleAboutSlide);
+    aboutMotion.addEventListener('change', () => { aboutPaused = aboutMotion.matches; scheduleAboutSlide(); });
+    scheduleAboutSlide();
   </script>
 </body>
 </html>

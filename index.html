@@ -698,7 +698,7 @@
     .program-card-head {
       display: flex;
       gap: 18px;
-      align-items: flex-start;
+      align-items: center;
       margin-bottom: 16px;
     }
 
@@ -720,8 +720,9 @@
     }
 
     .program-card h3 {
-      font-size: 1.08rem;
-      margin-bottom: 0;
+      font-size: clamp(1.25rem, 1.1rem + .4vw, 1.45rem);
+      line-height: 1.4;
+      margin: 0;
     }
 
     .program-desc {
@@ -1500,6 +1501,12 @@
     .hero-slide.is-active { transform:translateX(0); visibility:visible; z-index:2; }
     .hero-slide.is-previous { transform:translateX(-100%); visibility:visible; z-index:1; }
     @media (prefers-reduced-motion:reduce) { .hero-slide { transition:none; } }
+
+    /* Keep assessment descriptions separate without narrowing mobile text. */
+    @media (min-width:1001px) {
+      .process-steps--four .process-step > p,
+      .process-steps--four .process-step > .step-required { padding-inline:20px; }
+    }
   </style>
 </head>
 <body>
@@ -1648,7 +1655,7 @@
           <li>부부의 양육 방식이 달라 어려울 때</li>
           <li>상담이 필요한 상황인지 판단하기 어려울 때</li>
         </ul>
-        <p>부모와 자녀 사이의 갈등이 반복되면 아이의 정서와 행동에도 어려움이 나타날 수 있습니다. 상담을 통해 서로의 마음을 이해하고, 관계를 다시 단단히 다져갈 수 있도록 돕습니다.</p>
+        <p>부모와 자녀 사이의 갈등이 반복되면 아이의 정서와 행동에도 어려움이 나타날 수 있습니다.<br />상담을 통해 서로의 마음을 이해하고, 관계를 다시 단단히 다져갈 수 있도록 돕습니다.</p>
       </aside>
     </div>
   </section>

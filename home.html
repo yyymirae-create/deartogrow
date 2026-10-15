@@ -206,6 +206,11 @@
       flex-shrink: 0;
     }
 
+    .header .logo { align-items: flex-end; gap: 4px; }
+    .logo-art { position: relative; display: block; width: 28px; height: 30px; overflow: hidden; flex-shrink: 0; }
+    .logo-art .logo-mark { position: absolute; max-width: none; left: -8px; top: -7px; }
+    .header .logo-text { line-height: 1; padding-bottom: 1px; }
+
     .logo-mark {
       width: 42px;
       height: 42px;
@@ -1529,7 +1534,7 @@
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="/" class="logo">
-        <img src="images/logo_color.png" alt="" class="logo-mark" width="42" height="42" />
+        <span class="logo-art"><img src="images/logo_color.png" alt="" class="logo-mark" width="42" height="42" /></span>
         <span class="logo-text">같이크는마음</span>
       </a>
       <nav class="nav" id="nav">
@@ -2021,11 +2026,11 @@
           </div>
 
           <div class="counselor-records"><h4>외부활동</h4><ul>
-            <li><strong>진학사 온보딩 교육</strong><span>「기질 및 성격검사를 통한 이해와 존중의 조직문화 만들기」 워크숍</span></li>
+            <li><strong>기업 출강</strong><span>「기질 및 성격검사를 통한 이해와 존중의 조직문화 만들기」 워크숍</span></li>
             <li><strong>강동대학교 유아교육학과</strong><span>「영유아 부적응 행동의 통합적 이해와 효과적인 대화의 실제」 특강</span></li>
             <li><strong>상계종합사회복지관 느린학습자 부모교육</strong><span>「완벽한 부모보다, 충분히 좋은 부모: 양육태도검사를 활용한 양육태도 점검과 코칭」</span></li>
             <li><strong>충북RISE 초등늘봄사업</strong><span>교육프로그램 개발</span></li>
-            <li><strong>다음세대재단 D.MZ 후속모임</strong><span>「TCI로 알아보는 나사용법」 강연</span></li>
+            <li><strong>비영리재단 출강</strong><span>「TCI로 알아보는 나사용법」 강연</span></li>
             <li><strong>OECD 유아기 학습 및 유아 웰빙 국제조사(IELS)</strong><span>유아 일대일 평가 조사원</span></li>
             <li><strong>자립준비청년 멘토링프로젝트 &lt;굿사이드프로젝트&gt;</strong><span>「내 마음 사용법 - TCI」 강연</span></li>
           </ul></div>
@@ -2120,7 +2125,7 @@
               <div class="contact-item-icon" aria-hidden="true">🗓️</div>
               <div>
                 <strong>운영 요일 · 월요일, 목요일, 금요일</strong>
-                <span>현재 상담소는 월·목·금요일에 사전예약제로 운영합니다.<br />화·수·토요일에는 상담자가 외부 기관에서 근무하여 상담소를 운영하지 않습니다. 예약 가능한 시간은 네이버 예약 또는 문자로 문의해 주세요.</span>
+                <span>현재 상담소는 월·목·금요일에 사전예약제로 운영합니다.<br />화·수·토요일은 상담자의 외부 기관 근무로 상담소를 운영하지 않습니다.<br />예약 가능한 시간은 네이버 예약에서 확인해 주세요.<br />일정 관련 추가 문의는 문자로 남겨주세요.</span>
               </div>
             </div>
             <div class="contact-item">
